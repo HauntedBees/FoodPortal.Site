@@ -5,7 +5,8 @@
 			<v-toolbar-title class="mr-12 hidden-sm-and-down">
 				<router-link class="hide-link" :to="$route.matched[0].path">{{name}}</router-link>
 			</v-toolbar-title>
-			<v-text-field style="max-width:60%" prepend-inner-icon="mdi-card-search" dense flat hide-details rounded solo-inverted />
+			<v-text-field style="max-width:60%" prepend-inner-icon="mdi-card-search" dense flat hide-details rounded solo-inverted 
+				v-model="searchQuery" @keyup.enter="Search()" />
 		</v-app-bar>
 		<v-main>
 			<router-view :key="$route.fullPath" />
@@ -24,7 +25,7 @@ import 'src/scss/style.scss';
 import 'flag-icon-css/css/flag-icon.css';
 export default Vue.extend({
 	name: "App",
-	data: () => ({}),
+	data: () => ({ searchQuery: "" }),
 	computed: {
 		name() { return this.$route.matched[0].meta.title; },
 		icon() {
@@ -33,6 +34,9 @@ export default Vue.extend({
 				default: return "1F35E";
 			}
 		}
+	},
+	methods: {
+		Search() { this.$router.push("/world/search/" + this.searchQuery); }
 	}
 });
 </script>

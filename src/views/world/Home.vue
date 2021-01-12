@@ -1,12 +1,13 @@
 <template>
 <v-container>
 	<v-sheet rounded class="pa-5">
-		<p>Hello and welcome! For some reason I decided it would be a good idea to make foods and listen to music from around the world, and thanks to
-		the internet and blogosphere technology, you can follow along!</p>
-		<p>If you have any comments, suggestions, criticisms, complaints, or if I accidentally say/do something appropriative or uncomfortable for whatever reason,
-		hit me up at <a href="mailto:fench@hauntedbees.com">fench@hauntedbees.com</a> or on Twitter at <ax href="https://twitter.com/hauntedbees">@hauntedbees</ax>.</p>
-		<p>With that said, have fun! Click areund on the filters to find stuff, or search by recipe name or ingredient in the search box! Or if you just want to see
-		my favorite foods and songs, <router-link to="/world/favorites">click here!</router-link></p>
+		<h2 class="mb-2">Areund the World</h2>
+		<p>Hello and welcome! For some reason I decided it would be a good idea to make food and listen to music from around the world, and thanks to
+		the internet, you can follow along! If you have any comments, suggestions, criticisms, complaints, etc., hit me up at 
+		<a href="mailto:fench@hauntedbees.com">fench@hauntedbees.com</a> or on Twitter at <ax href="https://twitter.com/hauntedbees">@hauntedbees</ax>.</p>
+		<p>Now that that's out of the way, pick a country, use the filters to see specific dish types or diets, or search for something in the search box!
+		If you just want to see my favorite foods and songs, <router-link to="/world/favorites">click here</router-link>! For the privacy policy and all 
+		that cool nerd stuff, <router-link to="/world/abeut">click here</router-link>!</p>
 	</v-sheet>
 	<v-container class="px-5">
 		<v-progress-linear class="mx-2 mb-2" height="25" striped :value="letterCountriesPercent">

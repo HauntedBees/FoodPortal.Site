@@ -2798,7 +2798,7 @@ const Data:CountryInfo = {
                   { type: "Spicy", desc: "This recipe calls for a bit of cayenne pepper." },
                   { type: "Meat", desc: "This is basically just grilled meat and onions. If you have some preferred meat substitute for grilling, go for that." }
               ],
-              ingredients: ["beef", "onions", "cayenne pepper", "liquid smoke", "meat tenderizer", "jumbo/maggi cubes"]
+              ingredients: ["beef", "goat", "onions", "cayenne pepper", "liquid smoke", "meat tenderizer", "jumbo/maggi cubes"]
             },
             { name: "Tapalapa", type: "Bread", url: "https://www.196flavors.com/gambia-tapalapa/", date: "2020-08-24", databee: "tapalapa",
               img: "tapalapa.jpg", desc: "Four different types of flour in one dough leads to a very unique flavor. Similar to cornbread, it is delicious, even if I had to settle for mostly-dead yeast since it's still a pandemic and stores sometimes don't have much regular alive yeast right now.",
@@ -2919,14 +2919,6 @@ const Data:CountryInfo = {
         languages: ["English", "many recognized native languages"], motto: `"Freedom and Justice."`, neighbors: ["BF", "CI", "TG"], 
         foodURL: "https://en.wikipedia.org/wiki/Ghanaian_cuisine",
         food: [
-            { name: "Angwa Mo", type: "Rice", url: "https://ndudu-by-fafa.blogspot.com/2017/04/the-ghanaian-oiled-rice-recipe.html", date: "2020-11-08", favorite: true,
-              img: "angwamo.jpg", desc: "Any time a dish makes me go back for seconds, then go back for thirds, and then be disappointed that I didn't actually make enough to have thirds, is a time that I declare a dish Very Yum. A very flavorful rice.",
-              diet: [
-                { type: "Meat", desc: "Salted beef is a primary ingredient that you can omit or replace if you do not want to eat salted beef. I used prosciutto." },
-                { type: "Spicy", desc: "A bit of peppie is used for some background heat." }
-              ],
-              ingredients: ["oil", "basmati rice", "salted beef", "chilli peppers", "onion"]
-            },
             { name: "Light Soup", type: "Soup", url: "https://www.inammaskitchen.com/ghanaian-chicken-soup-light-soup-recipe/", date: "2020-11-07", 
               img: "lightsoup.jpg", desc: "It's mostly just spicy tomato soup with chicken, but the inclusion of a lil' bit of ginger really brings out some wild new flavors.",
               diet: [
@@ -2934,6 +2926,14 @@ const Data:CountryInfo = {
                 { type: "Spicy", desc: "Some peppie blended into the soup." }
               ],
               ingredients: ["tomato", "onion", "chicken", "tomato paste", "bay leaf", "garlic", "scotch bonnet pepper", "ginger", "bouillon cube"]
+            },
+            { name: "Angwa Mo", type: "Rice", url: "https://ndudu-by-fafa.blogspot.com/2017/04/the-ghanaian-oiled-rice-recipe.html", date: "2020-11-08", favorite: true,
+              img: "angwamo.jpg", desc: "Any time a dish makes me go back for seconds, then go back for thirds, and then be disappointed that I didn't actually make enough to have thirds, is a time that I declare a dish Very Yum. A very flavorful rice.",
+              diet: [
+                { type: "Meat", desc: "Salted beef is a primary ingredient that you can omit or replace if you do not want to eat salted beef. I used prosciutto." },
+                { type: "Spicy", desc: "A bit of peppie is used for some background heat." }
+              ],
+              ingredients: ["oil", "basmati rice", "salted beef", "chilli peppers", "onion"]
             }
         ],
         musicURL: "https://en.wikipedia.org/wiki/Music_of_Ghana",

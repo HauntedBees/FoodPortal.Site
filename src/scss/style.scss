@@ -32,6 +32,7 @@ p.indent { text-indent: 1em }
     padding-left: 2px!important;
 }
 .food-card {
+    width: 100%;
     & .food-card--content { width: 100% }
     &.type-beverage { background-color: #3F3F3F!important }
     &.type-curry { background-color: #5F5F3F!important }

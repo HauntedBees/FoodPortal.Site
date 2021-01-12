@@ -1,8 +1,5 @@
 <template>
 <v-container>
-	<v-sheet rounded class="pa-5">
-		These are the htits.
-	</v-sheet>
 	<v-row class="px-3">
 		<v-col cols="7">
 			<h2 class="mb-1">Favorite Foods</h2>
