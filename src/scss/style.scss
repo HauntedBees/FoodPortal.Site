@@ -1,0 +1,102 @@
+@font-face { font-family: "Nevis"; src: url("/common/fonts/nevis2.ttf") }
+em { font-family: "Nevis"; font-style: normal; font-size: 1.3rem; }
+.no-big-em em { font-family: inherit; font-style: italic; font-size: 1rem }
+@for $i from 1 through 6 {
+    h#{$i} { font-family: "Nevis" }
+}
+p.indent { text-indent: 1em }
+.comma-list span:not(:last-child)::after {
+    content: ", ";
+}
+.hide-link {
+    color: #B2DDFF!important;
+    text-decoration: none;
+    &:hover { text-decoration: underline }
+}
+.dotted-underline {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+
+.transparent { opacity: 0.5 }
+
+.emoji { vertical-align: middle }
+
+// #region Cards
+.card--date {
+    font-size: 1rem;
+    font-style: italic;
+}
+.card--detail-list {
+    list-style: none;
+    padding-left: 2px!important;
+}
+.food-card {
+    & .food-card--content { width: 100% }
+    &.type-beverage { background-color: #3F3F3F!important }
+    &.type-curry { background-color: #5F5F3F!important }
+    &.type-dumpling { background-color: #3F3521!important }
+    &.type-pastry { background-color: #3F2A0C!important }
+    &.type-wrap { background-color: #3F3123!important }
+    &.type-bread { background-color: #3F2E26!important }
+    &.type-casserole { background-color: #3F3F11!important }
+    &.type-dessert { background-color: #3F0811!important }
+    &.type-meat { background-color: #3F2E26!important }
+    &.type-noodle { background-color: #3F3F11!important }
+    &.type-rice { background-color: #5F5F3F!important }
+    &.type-other { background-color: #3F140C!important }
+    &.type-sauce { background-color: #3F140C!important }
+    &.type-soup { background-color: #3F3113!important }
+    &.type-salad { background-color: #083F11!important }
+    &.type-vegetable { background-color: #3F2A0C!important }
+    &.type-match { background-color: #346A34!important }
+    &.type-nomatch { background-color: #6A3434!important }
+}
+// #endregion
+
+// #region "Areund the World"
+.show-flag {
+    padding-left: 0!important;
+    list-style: none;
+}
+.v-tab { // for the letter labels
+    min-width: 30px!important;
+    width: 30px!important;
+}
+
+// #region Bonus Flags
+.flag-icon-ge-ab { background-image: url("../assets/abkhazia.svg"); }
+.flag-icon-am-ar { background-image: url("../assets/artsakh.svg"); }
+// #endregion
+// #region "World Map"
+$mapBGColor: #56A1C4;
+$mapPathColor: #2F380F;
+$mapPathCompletedColor: #2FFF0F;
+$mapPathActiveColor: #FFFF4F;
+.svg-map {
+    border: 1px solid black;
+    background-color: $mapBGColor;
+    width: 100%;
+    path {
+        stroke: black;
+        fill: $mapPathColor;
+        &:hover {
+            fill: darken($mapPathColor, 5%);
+        }
+        &.completed {
+            fill: $mapPathCompletedColor;
+            &:hover {
+                fill: darken($mapPathCompletedColor, 10%);
+            }
+        }
+        &.selected {
+            stroke: darken($mapPathActiveColor, 45);
+            fill: $mapPathActiveColor;
+            &:hover {
+                fill: darken($mapPathActiveColor, 10%);
+            }
+        }
+    }
+}
+// #endregion
+// #endregion
