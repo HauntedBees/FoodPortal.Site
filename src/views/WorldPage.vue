@@ -22,37 +22,45 @@
 					</v-list>
 				</v-tabs-items>
 				<h4 class="pa-2">Ingredients</h4>
-				<v-chip-group column multiple>
-					<v-chip small v-for="(value, key) in DietaryRestrictions" :key="key">
-						<Emoji :emoji="value" size="16" class="mr-1" /> {{key}}
-					</v-chip>
-				</v-chip-group>
+				<v-row class="px-2 pr-3 mb-0">
+					<v-col cols="12" md="6" class="pa-2" v-for="diet in DietaryRestrictions" :key="diet.name">
+						<v-chip style="width:100%" @click="ToggleFilter(diet)">
+							<v-icon small left>mdi-{{GetIcon(diet)}}</v-icon>
+							<Emoji :emoji="diet.emoji" size="16" class="mr-1" /> {{diet.name}}
+						</v-chip>
+					</v-col>
+				</v-row>
 				<h4 class="pa-2">Dishes</h4>
-				<v-chip-group column multiple>
-					<v-chip small v-for="(value, key) in DishTypes" :key="key">
-						<Emoji :emoji="value" size="16" class="mr-1" /> {{key}}
-					</v-chip>
-				</v-chip-group>
+				<v-row class="px-2 pr-3 mb-0">
+					<v-col cols="12" md="6" class="pa-2" v-for="dish in DishTypes" :key="dish.name">
+						<v-chip style="width:100%" @click="ToggleFilter(dish)">
+							<v-icon small left>mdi-{{GetIcon(dish)}}</v-icon>
+							<Emoji :emoji="dish.emoji" size="16" class="mr-1" /> {{dish.name}}
+						</v-chip>
+					</v-col>
+				</v-row>
 			</v-sheet>
 		</v-col>
 		<v-col cols="12" md="10">
-			<router-view></router-view>
+			<WorldFilter v-if="dishfilters.length > 0 || dietfilters.length > 0" :dishfilters="dishfilters" :dietfilters="dietfilters" />
+			<router-view v-if="dishfilters.length === 0 && dietfilters.length === 0" />
 		</v-col>
 	</v-row>
 </v-container>
 </template>
 <script lang="ts">
-import Data, { CountryLetters, DietaryRestrictions, DishTypes } from 'src/assets/data';
+import Data, { CountryLetters, DietaryRestrictions, DishTypes, FilterInfo } from 'src/assets/data';
 import { Vue, Component } from 'vue-property-decorator';
-import Home from 'src/views/world/Home.vue';
-import Country from 'src/views/world/Country.vue';
-@Component({ components: { Home, Country } })
+import WorldFilter from "src/views/world/Filter.vue";
+@Component({ components: { WorldFilter } })
 export default class WorldPage extends Vue {
 	tab = 0;
 	Data = Data;
 	CountryLetters = CountryLetters;
-	DietaryRestrictions = DietaryRestrictions;
-	DishTypes = DishTypes;
+	DietaryRestrictions:FilterInfo[] = [];
+	DishTypes:FilterInfo[] = [];
+	dishfilters:FilterInfo[] = [];
+	dietfilters:FilterInfo[] = [];
 	created() {
 		const id = this.$route.params.id;
 		if(id === "" || id === undefined) {
@@ -62,11 +70,41 @@ export default class WorldPage extends Vue {
 			const firstLetter = country.realFirstLetter || country.name[0];
 			this.tab = firstLetter.charCodeAt(0) - 65;
 		}
+		for(const key in DietaryRestrictions) {
+			this.DietaryRestrictions.push({ 
+				name: key,
+				emoji: DietaryRestrictions[key],
+				status: 0
+			});
+		}
+		for(const key in DishTypes) {
+			this.DishTypes.push({ 
+				name: key,
+				emoji: DishTypes[key],
+				status: 0
+			});
+		}
 	}
 	get mapid() {
 		const id = this.$route.params.id;
 		if(!id) { return ""; }
 		return Data[id].focusArea || id;
+	}
+	GetIcon(filter:FilterInfo) {
+		switch(filter.status) {
+			case 1: return "checkbox-marked-circle";
+			case -1: return "close-circle";
+			default: return "circle-off-outline";
+		}
+	}
+	ToggleFilter(filter:FilterInfo) {
+		switch(filter.status) {
+			case 1: filter.status = -1; break;
+			case -1: filter.status = 0; break;
+			default: filter.status = 1; break;
+		}
+		this.dietfilters = this.DietaryRestrictions.filter(f => f.status !== 0);
+		this.dishfilters = this.DishTypes.filter(f => f.status !== 0);
 	}
 }
 </script>

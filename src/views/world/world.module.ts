@@ -3,11 +3,13 @@ import WorldHome from "src/views/world/Home.vue";
 import WorldCountry from "src/views/world/Country.vue";
 import WorldFavorites from "src/views/world/Favorites.vue";
 import WorldSearch from "src/views/world/Search.vue";
+import WorldFilter from "src/views/world/Filter.vue";
 import Abeut from "src/views/Abeut.vue";
 const routes:Array<RouteConfig> = [
     { path: "", component: WorldHome },
     { path: "favorites", component: WorldFavorites },
     { path: "abeut", component: Abeut },
+    { path: "filter/:filters", component: WorldFilter },
     { path: "search/:query", component: WorldSearch },
     { path: ":id", component: WorldCountry }
 ];

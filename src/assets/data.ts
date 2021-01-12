@@ -1,6 +1,6 @@
 export class CountryLetter { letter = ""; info:CountryLetterInfo[] = []; }
 export class CountryLetterInfo { code = ""; name = ""; }
-export const DietaryRestrictions = {
+export const DietaryRestrictions:{[key:string]:string} = {
   "Alcohol": "1F377",
   "Dairy": "1F95B", 
   "Egg": "1F95A", 
@@ -15,7 +15,7 @@ export const DietaryRestrictions = {
   "Vegan": "1F33F",
   "Warning": "26A0"
 }
-export const DishTypes = {
+export const DishTypes:{[key:string]:string} = {
   "Beverage": "1F379",
   "Bread": "1F35E",
   "Casserole": "1F372",
@@ -32,6 +32,11 @@ export const DishTypes = {
   "Wrap": "1F959",
   "Vegetable": "1F955",
   "Other": "1F962"
+}
+export interface FilterInfo {
+  name:string;
+  emoji:string;
+  status:number;
 }
 export interface CountryInfo { [key:string]:CountryDetails }
 export interface SongInfo {
