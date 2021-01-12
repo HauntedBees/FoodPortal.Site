@@ -1,7 +1,7 @@
 <template>
 <v-container>
 	<v-row>
-		<h2 class="mb-1">Filtered Foods</h2>
+		<h2 class="mb-1">Filtered Foods <span v-if="matchingFoods.length">({{matchingFoods.length}})</span></h2>
 		<FoodCard v-for="food in matchingFoods" :key="food.name" :food="food" />
         <div v-if="matchingFoods.length === 0" class="ma-4">
             Sorry, nothing matches those filters. Try removing some to broaden your scope. And don't do something like picking 

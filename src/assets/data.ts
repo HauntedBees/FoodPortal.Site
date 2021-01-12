@@ -788,6 +788,7 @@ const Data:CountryInfo = {
             { name: "Bajan Salt Bread", type: "Bread", url: "https://www.totallybarbados.com/articles/barbados-recipes/bajan-salt-recipe/", date: "2018-11-18", 
               img: "saltbread.jpg", desc: "It's a pretty solid bread. Good for sandwiches, which is what I used it for. Because I am a fool, mine was a bit more dense than it's supposed to be, but you can avoid this problem by not being bad at baking.",
               diet: [
+                  { type: "Vegan", desc: "This dish is vegan-friendly without any substitutions." },
                   { type: "Gluten", desc: "This is literally bread. Sorry." }
               ],
               ingredients: ["flour", "sugar", "salt", "vegetable oil", "yeast"]
