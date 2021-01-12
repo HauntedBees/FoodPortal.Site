@@ -1,7 +1,7 @@
 <template>
 <v-container>
 	<v-row>
-		<v-col cols="2">
+		<v-col cols="12" md="2">
 			<v-sheet class="pa-1" shaped>
 				<WorldMap :data="Data" :focus="mapid" :realid="$route.params.id" />
 				<v-divider/>
@@ -35,7 +35,7 @@
 				</v-chip-group>
 			</v-sheet>
 		</v-col>
-		<v-col cols="10">
+		<v-col cols="12" md="10">
 			<router-view></router-view>
 		</v-col>
 	</v-row>

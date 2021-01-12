@@ -1,10 +1,10 @@
 <template>
 <v-card :class="'mb-2 food-card type-' + food.type.toLowerCase()">
-	<div class="d-flex flex-no-wrap justify-space-between">
-		<v-avatar class="ma-3" size="125" tile>
-			<img :src="require(`src/assets/img_world/${food.img}`)">
-		</v-avatar>
-		<div class="food-card--content">
+	<v-row class="d-flex flex-no-wrap justify-space-between">
+		<v-col cols="12" md="2">
+			<img class="px-4 py-2" width="100%" :src="require(`src/assets/img_world/${food.img}`)">
+		</v-col>
+		<v-col cols="12" md="10" class="food-card--content">
 			<v-card-title class="headline pt-1">
 				<spantt :tooltip="Data[food.countryCode].name"><span :class="'mr-1 flag-icon flag-icon-' + food.countryCode.toLowerCase()" /></spantt>
 				<spantt v-if="food.favorite" tooltip="Personal Favorite"><Emoji emoji="1F31F" size="24" class="mr-1" /></spantt>
@@ -29,8 +29,8 @@
 					</li>
 				</ul>
 			</v-card-subtitle>
-		</div>
-	</div>
+		</v-col>
+	</v-row>
 </v-card>
 </template>
 <script lang="ts">
