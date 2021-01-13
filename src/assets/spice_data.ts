@@ -314,7 +314,7 @@ const Spices: Spice[] = [{
     "type": 1
 }, {
     "synonyms": ["French parsley", "garden chervil"],
-    "description": "A mild herb for mild dishes",
+    "description": "A mild herb for mild dishes.",
     "dishes": [12, 10],
     "emoji": "1F33F",
     "flavors": [6],
