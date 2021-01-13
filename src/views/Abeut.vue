@@ -42,6 +42,12 @@ export default class AbeutPage extends Vue {
                     without permission. I'll worry about the ethics or legality of that once I get a Cease and Desist.`    
                 ];
                 break;
+            case "/vegan":
+                this.addtltext = [`
+                    We are not associated with any of the companies whose products are reviewed on this site. We have received no remuneration for these reviews; all 
+                    products were purchased at retail price in various grocery stores and rated based on personal tastes.
+                `];
+                break;
         }
     }
 }

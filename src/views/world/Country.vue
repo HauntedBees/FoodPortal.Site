@@ -1,7 +1,7 @@
 <template>
 <v-container>
 	<v-sheet rounded class="pa-5">
-        <h1 class="mb-1"><span :class="'flag-icon flag-icon-' + countryCode.toLowerCase()" /> {{country.name}}</h1> <!-- TODO: databee icon -->
+        <h1 class="mb-1"><span :class="'flag-icon flag-icon-' + countryCode.toLowerCase()" /> {{country.name}}</h1>
 		<p class="no-big-em" v-html="country.desc"></p>
 		<v-row>
 			<v-col cols="12" md="6">

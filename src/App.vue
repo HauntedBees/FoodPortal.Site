@@ -31,6 +31,7 @@ export default Vue.extend({
 		icon() {
 			switch(this.$route.matched[0].path) {
 				case "/world": return "1F5FA";
+				case "/vegan": return "1F33F";
 				default: return "1F35E";
 			}
 		}

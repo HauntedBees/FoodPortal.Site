@@ -34,6 +34,8 @@ p.indent { text-indent: 1em }
 .food-card {
     width: 100%;
     & .food-card--content { width: 100% }
+
+    // World Food
     &.type-beverage { background-color: #3F3F3F!important }
     &.type-curry { background-color: #5F5F3F!important }
     &.type-dumpling { background-color: #3F3521!important }
@@ -52,6 +54,16 @@ p.indent { text-indent: 1em }
     &.type-vegetable { background-color: #3F2A0C!important }
     &.type-match { background-color: #346A34!important }
     &.type-nomatch { background-color: #6A3434!important }
+    
+    // Alt Food
+    &.type-milk { background-color: #4C4C4C!important }
+    &.type-cheese { background-color: #4C4C16!important }
+    &.type-egg { background-color: #60605E!important }
+    &.type-beef { background-color: #4C2807!important }
+    &.type-poultry { background-color: #4C1A0A!important }
+    &.type-dairy { background-color: #635D4D!important }
+    &.type-meat { background-color: #4C2600!important }
+    &.type-combo { background-color: #30304C!important }
 }
 // #endregion
 
@@ -100,4 +112,10 @@ $mapPathActiveColor: #FFFF4F;
     }
 }
 // #endregion
+// #endregion
+// #region "Alt. Food"
+.food-active a {
+    font-weight: bold;
+    color: #FFFFFF!important;
+}
 // #endregion
