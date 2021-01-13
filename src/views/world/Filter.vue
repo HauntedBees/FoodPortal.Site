@@ -12,7 +12,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { FilterInfo, FoodList } from 'src/assets/data';
+import { FilterInfo, FoodList } from 'src/assets/world_data';
 @Component
 export default class WorldFilter extends Vue {
     @Prop() dishfilters!:FilterInfo[];

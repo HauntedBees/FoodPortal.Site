@@ -35,7 +35,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import Data, { DishTypes, DietaryRestrictions, FoodInfo } from 'src/assets/data';
+import Data, { DishTypes, DietaryRestrictions, FoodInfo } from 'src/assets/world_data';
 @Component
 export default class FoodCard extends Vue {
 	Data = Data;

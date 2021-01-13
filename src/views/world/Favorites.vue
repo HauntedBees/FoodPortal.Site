@@ -18,7 +18,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { FoodList, SongList } from 'src/assets/data';
+import { FoodList, SongList } from 'src/assets/world_data';
 @Component
 export default class WorldFavorites extends Vue {
 	get favoriteFoods() { return FoodList.filter(f => f.favorite).sort((a, b) => a.name.localeCompare(b.name)); }

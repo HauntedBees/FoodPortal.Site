@@ -12,7 +12,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { FoodList } from 'src/assets/data';
+import { FoodList } from 'src/assets/world_data';
 @Component
 export default class WorldSearch extends Vue {
     query = "";

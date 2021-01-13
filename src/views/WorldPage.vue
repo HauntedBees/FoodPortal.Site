@@ -49,7 +49,7 @@
 </v-container>
 </template>
 <script lang="ts">
-import Data, { CountryLetters, DietaryRestrictions, DishTypes, FilterInfo } from 'src/assets/data';
+import Data, { CountryLetters, DietaryRestrictions, DishTypes, FilterInfo } from 'src/assets/world_data';
 import { Vue, Component } from 'vue-property-decorator';
 import WorldFilter from "src/views/world/Filter.vue";
 @Component({ components: { WorldFilter } })

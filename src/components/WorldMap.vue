@@ -14,7 +14,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import svgPanZoom from 'svg-pan-zoom';
 import World from 'src/assets/robinson';
-import { CountryInfo } from 'src/assets/data';
+import { CountryInfo } from 'src/assets/world_data';
 @Component
 export default class WorldMap extends Vue {
     target = "";

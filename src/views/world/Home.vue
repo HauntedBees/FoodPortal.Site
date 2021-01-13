@@ -44,7 +44,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import Data, { CountryLetters, FoodList, SongList } from 'src/assets/data';
+import Data, { CountryLetters, FoodList, SongList } from 'src/assets/world_data';
 @Component
 export default class WorldHome extends Vue {
 	countriesWithCurrentLetter = 10;

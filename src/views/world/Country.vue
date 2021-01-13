@@ -46,7 +46,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import Data, { CountryDetails, OtherCountries } from 'src/assets/data';
+import Data, { CountryDetails, OtherCountries } from 'src/assets/world_data';
 import dayjs from 'dayjs';
 @Component
 export default class WorldCountry extends Vue {
