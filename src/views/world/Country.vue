@@ -76,6 +76,8 @@ export default class WorldCountry extends Vue {
 			document.title = f.name + " - Areund the World";
 			this.country = f;
 			this.countryCode = id;
+		} else {
+			document.title = "Unavailable Region - Areund the World";
 		}
 	}
 

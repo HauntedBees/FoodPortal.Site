@@ -18,6 +18,7 @@ export default class WorldSearch extends Vue {
     query = "";
 	created() {
 		this.query = this.$route.params.query || "";
+        document.title = `Search Results for "${this.query}" - Areund the World`;
         if(this.query === "") {
             this.$router.push("/world/");
         }

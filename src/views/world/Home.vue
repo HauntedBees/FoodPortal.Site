@@ -47,6 +47,8 @@ import { Vue, Component } from 'vue-property-decorator';
 import Data, { CountryLetters, FoodList, SongList } from 'src/assets/world_data';
 @Component
 export default class WorldHome extends Vue {
+	created() { document.title = "Areund the World"; }
+
 	countriesWithCurrentLetter = 10;
 	get currentLetter() { return CountryLetters[CountryLetters.length - 1].letter; }
 	get letterCountriesDown() { return CountryLetters[CountryLetters.length - 1].info.length; }

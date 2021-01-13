@@ -26,10 +26,12 @@ export default class AltType extends Vue {
 		const id = this.$route.params.id;
 		const f = FoodCategories.filter(c => c.id === id)[0];
 		if(f !== undefined) {
-			document.title = f.name + "Alternatives - Alt. Food";
+			document.title = f.name + " Alternatives - Alt. Food";
 			this.category = f;
 			this.foods = Food[id];
 			this.foods.sort((a, b) => (b.rating - a.rating));
+		} else {
+			document.title = "Unknown Thing - Alt. Food";
 		}
 	}
 }

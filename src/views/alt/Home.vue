@@ -29,6 +29,7 @@ import { Vue, Component } from 'vue-property-decorator';
 import Food, { Product } from 'src/assets/vegan_data';
 @Component
 export default class AltHome extends Vue {
+	created() { document.title = "Alt. Food Reviews"; }
 	get recentFoods() { 
 		const fullfoods:Product[] = [];
 		for(const key in Food) {
