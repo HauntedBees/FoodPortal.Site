@@ -67,8 +67,12 @@ export default class WorldPage extends Vue {
 			this.tab = this.CountryLetters.length - 1;
 		} else {
 			const country = Data[id];
-			const firstLetter = country.realFirstLetter || country.name[0];
-			this.tab = firstLetter.charCodeAt(0) - 65;
+			if(country) {
+				const firstLetter = country.realFirstLetter || country.name[0];
+				this.tab = firstLetter.charCodeAt(0) - 65;
+			} else {
+				this.tab = this.CountryLetters.length - 1;
+			}
 		}
 		for(const key in DietaryRestrictions) {
 			this.DietaryRestrictions.push({ 
@@ -88,6 +92,7 @@ export default class WorldPage extends Vue {
 	get mapid() {
 		const id = this.$route.params.id;
 		if(!id) { return ""; }
+		if(!Data[id]) { return ""; }
 		return Data[id].focusArea || id;
 	}
 	GetIcon(filter:FilterInfo) {

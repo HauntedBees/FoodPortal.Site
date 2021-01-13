@@ -1,6 +1,21 @@
 <template>
 <v-container>
-	<v-sheet rounded class="pa-5">
+	<v-sheet rounded class="pa-5" v-if="!country && UnlinkedCountries[$route.params.id]">
+        <h1 class="mb-1"><span :class="'flag-icon flag-icon-' + $route.params.id.toLowerCase()" /> {{UnlinkedCountries[$route.params.id]}}</h1>
+		<p>
+			We haven't reached this region yet. We'll get to it eventually! Until then, check out one of the other places we HAVE reached and
+			check out their excellent food and music!
+		</p>
+	</v-sheet>
+	<v-sheet rounded class="pa-5" v-if="!country && !UnlinkedCountries[$route.params.id]">
+        <h1 class="mb-1">I don't know what that is.</h1>
+		<p>
+			I don't know what you were trying to see, but we don't have a page for that. Try picking one of the regions we've made 
+			food and listened to music from! Or filter on dish types or dietary restrictions! Or just search for something in the 
+			search box up there! But don't do this, because I don't know what "{{$route.params.id}}" is, so I can't give you a page for it.
+		</p>
+	</v-sheet>
+	<v-sheet rounded class="pa-5" v-if="country">
         <h1 class="mb-1"><span :class="'flag-icon flag-icon-' + countryCode.toLowerCase()" /> {{country.name}}</h1>
 		<p class="no-big-em" v-html="country.desc"></p>
 		<v-row>
@@ -30,7 +45,7 @@
 			</v-col>
 		</v-row>
 	</v-sheet>
-	<v-row class="px-3">
+	<v-row class="px-3" v-if="country">
 		<v-col cols="12" md="8">
 			<h2><ax class="hide-link" :href="country.foodURL">Food</ax></h2>
 			<FoodCard v-for="food in country.food" :key="food.name" :food="food" />
@@ -51,7 +66,7 @@ import dayjs from 'dayjs';
 @Component
 export default class WorldCountry extends Vue {
     countryCode!:string;
-    country!:CountryDetails;
+    country?:CountryDetails|null = null;
 	LinkedCountries = Data;
 	UnlinkedCountries = OtherCountries;
 	created() {
@@ -65,6 +80,7 @@ export default class WorldCountry extends Vue {
 	}
 
 	get countryIndependence() {
+		if(!this.country) { return ""; }
 		if(this.country.independence.match(/^[0-9]/) === null) {
 			return this.country.independence;
 		} else {
