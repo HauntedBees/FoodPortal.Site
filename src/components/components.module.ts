@@ -9,6 +9,7 @@ import FoodCard from "src/components/FoodCard.vue";
 import SongItem from "src/components/SongItem.vue";
 
 import AltFoodCard from "src/components/AltFoodCard.vue";
+import SpiceCard from "src/components/SpiceCard.vue";
 
 Vue.component("ax", ExternalLink);
 Vue.component("Emoji", Emoji);
@@ -20,3 +21,4 @@ Vue.component("FoodCard", FoodCard);
 Vue.component("SongItem", SongItem);
 
 Vue.component("AltFoodCard", AltFoodCard);
+Vue.component("SpiceCard", SpiceCard);

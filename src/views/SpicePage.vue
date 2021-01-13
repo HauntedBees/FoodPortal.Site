@@ -21,7 +21,7 @@
 import { FoodCategories } from 'src/assets/vegan_data';
 import { Vue, Component } from 'vue-property-decorator';
 @Component
-export default class AltPage extends Vue {
+export default class SpicePage extends Vue {
     FoodCategories = FoodCategories;
     get activeRoute() {
         const params = this.$router.currentRoute.params;

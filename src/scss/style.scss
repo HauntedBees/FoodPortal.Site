@@ -8,7 +8,7 @@ p.indent { text-indent: 1em }
 .comma-list span:not(:last-child)::after {
     content: ", ";
 }
-.hide-link {
+a {
     color: #B2DDFF!important;
     text-decoration: none;
     &:hover { text-decoration: underline }
@@ -63,8 +63,12 @@ p.indent { text-indent: 1em }
     &.type-beef { background-color: #4C2807!important }
     &.type-poultry { background-color: #4C1A0A!important }
     &.type-dairy { background-color: #635D4D!important }
-    &.type-meat { background-color: #4C2600!important }
     &.type-combo { background-color: #30304C!important }
+    
+    // Spices
+    &.type-spice { background-color:#44403A!important }
+    &.type-herb { background-color:#34503A!important }
+    &.type-blend { background-color:#50343A!important }
 }
 // #endregion
 

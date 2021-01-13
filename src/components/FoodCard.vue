@@ -9,7 +9,7 @@
 				<spantt :tooltip="Data[food.countryCode].name"><span :class="'mr-1 flag-icon flag-icon-' + food.countryCode.toLowerCase()" /></spantt>
 				<spantt v-if="food.favorite" tooltip="Personal Favorite"><Emoji emoji="1F31F" size="24" class="mr-1" /></spantt>
 				<spantt :tooltip="food.type"><Emoji :emoji="DishTypes[food.type]" size="24" class="mr-2" /></spantt>
-				<ax :href="food.url" class="hide-link">{{food.name}}
+				<ax :href="food.url">{{food.name}}
 					<Emoji emoji="1F517" size="16" />
 				</ax>
 				<ax v-if="food.databee" class="ml-3" :href="'https://www.hauntedbees.com/food/getRecipe/' + food.countryCode.toLowerCase() + '/' + food.databee">

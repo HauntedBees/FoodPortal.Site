@@ -15,7 +15,7 @@
 				<v-tabs-items v-model="tab">
 					<v-list dense shaped style="max-height: 400px; overflow-y: scroll">
 						<v-list-item v-for="country in CountryLetters[tab].info" :key="country.code">
-							<router-link class="hide-link" :to="'/world/' + country.code">
+							<router-link :to="'/world/' + country.code">
 								<span :class="'mr-2 flag-icon flag-icon-' + country.code.toLowerCase()" />{{country.name}}
 							</router-link>
 						</v-list-item>

@@ -1,0 +1,77 @@
+<template>
+<v-card :class="'mb-2 food-card type-' + Types[spice.type]">
+	<v-row class="d-flex flex-no-wrap justify-space-between align-center">
+		<v-col cols="2">
+			<img class="pl-4" width="100%" :src="require(`src/assets/img_spice/${spice.id}.jpg`)" />
+		</v-col>
+		<v-col cols="10" class="food-card--content pl-0 pb-1">
+			<v-card-title class="headline pt-1">
+				<Emoji :emoji="spice.emoji" size="16" class="mr-1" />
+				{{spice.name}}
+				<v-spacer/>
+				<span class="card--date">{{spice.species}}</span>
+			</v-card-title>
+			<v-card-subtitle>
+                <div v-if="spice.synonyms.length" class="comma-list"><strong>AKA: </strong> <span v-for="s in spice.synonyms" :key="s">{{s}}</span></div>
+				<p class="my-1" v-html="spice.description"></p>
+                <div class="comma-list" v-if="spice.recipes.length">
+                    <strong>Recipes: </strong>
+                    <span v-for="r in spice.recipes" :key="r.name">
+                        <ax :href="r.url">{{r.name}}</ax>
+                    </span>
+                </div>
+                <v-row>
+                    <v-col cols="12" md="6">
+                        <div>
+                            <strong>Origin: </strong> {{spice.origin}}
+                        </div>
+                        <div class="comma-list">
+                            <strong>Flavors: </strong> 
+                            <span v-for="i in spice.flavors" :key="i">{{Flavors[i]}}</span>
+                        </div>
+                        <div v-if="spice.relatedSpices.length" class="comma-list">
+                            <strong>Related: </strong> 
+                            <span v-for="i in spice.relatedSpices" :key="i">{{Spices[i].name}}</span>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                        <div v-if="spice.foods.length" class="comma-list">
+                            <strong>Serve On: </strong> 
+                            <span v-for="i in spice.foods" :key="i">{{Foods[i]}}</span>
+                        </div>
+                        <div v-if="spice.dishes.length" class="comma-list">
+                            <strong>Use In: </strong> 
+                            <span v-for="i in spice.dishes" :key="i">{{DishTypes[i]}}</span>
+                        </div>
+                        <div v-if="spice.pairsWith.length" class="comma-list">
+                            <strong>Pairs With: </strong> 
+                            <span v-for="i in spice.pairsWith" :key="i">{{Spices[i].name}}</span>
+                        </div>
+                    </v-col>
+                </v-row>
+			</v-card-subtitle>
+            <v-card-subtitle class="float-right mb-0 pb-0 text-caption">
+                "<ax :href="spice.license.imgURL">{{spice.license.imgName}}</ax>"
+                 by 
+                <ax :href="spice.license.authorURL">{{spice.license.authorName}}</ax>
+                  is licensed under the 
+                <ax :href="Licenses[spice.license.licenseName]">{{spice.license.licenseName}}</ax>.
+            </v-card-subtitle>
+		</v-col>
+	</v-row>
+</v-card>
+</template>
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
+import Spices, { Spice, Types, Flavors, Foods, DishTypes, Licenses } from 'src/assets/spice_data';
+@Component
+export default class FoodCard extends Vue {
+    Types = Types;
+    DishTypes = DishTypes;
+    Foods = Foods;
+    Flavors = Flavors;
+    Spices = Spices;
+    Licenses = Licenses;
+    @Prop() spice!:Spice;
+}
+</script>

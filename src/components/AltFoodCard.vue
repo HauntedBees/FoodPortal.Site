@@ -4,7 +4,7 @@
 		<v-col cols="12" class="food-card--content">
 			<v-card-title class="headline pt-1 pb-6">
 				<spantt :tooltip="food.type.name"><Emoji :emoji="food.type.emoji" size="24" class="mr-2" /></spantt>
-				<ax :href="food.url" class="hide-link"><em>{{food.brand}}</em> {{food.item}}</ax>
+				<ax :href="food.url"><em>{{food.brand}}</em> {{food.item}}</ax>
 				<v-spacer/>
 				<span class="card--date">{{$formatdate(food.date)}}</span>
 			</v-card-title>

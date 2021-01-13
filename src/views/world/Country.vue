@@ -37,7 +37,7 @@
 				<div><strong>Neighbors</strong>:
 					<span class="comma-list">
 						<span v-for="n in country.neighbors" :key="n">
-							<router-link v-if="LinkedCountries[n]" class="hide-link" :to="'/world/' + n">{{LinkedCountries[n].name}}</router-link>
+							<router-link v-if="LinkedCountries[n]" :to="'/world/' + n">{{LinkedCountries[n].name}}</router-link>
 							<span v-if="!LinkedCountries[n]">{{UnlinkedCountries[n]}}</span>
 						</span>
 					</span>
@@ -47,11 +47,11 @@
 	</v-sheet>
 	<v-row class="px-3" v-if="country">
 		<v-col cols="12" md="8">
-			<h2><ax class="hide-link" :href="country.foodURL">Food</ax></h2>
+			<h2><ax :href="country.foodURL">Food</ax></h2>
 			<FoodCard v-for="food in country.food" :key="food.name" :food="food" />
 		</v-col>
 		<v-col cols="12" md="4">
-			<h2><ax class="hide-link" :href="country.musicURL">Music</ax></h2>
+			<h2><ax :href="country.musicURL">Music</ax></h2>
 			<ul>
 				<SongItem v-for="song in country.music" :key="song.name" :song="song" />
 			</ul>
