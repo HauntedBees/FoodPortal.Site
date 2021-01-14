@@ -15,6 +15,7 @@ dayjs.extend(utc);
 dayjs.extend(advancedFormat);
 Object.defineProperty(Vue.prototype, "$dayjs", { value: (val: string) => dayjs.utc(val).local() });
 Object.defineProperty(Vue.prototype, "$formatdate", { value: (val: string) => dayjs(val).format("D MMMM, YYYY") });
+Object.defineProperty(Vue.prototype, "$rootpath", { value: process.env.BASE_URL });
 
 Object.defineProperty(Vue.prototype, "$filters", { value: {
 	titlecase(str:string) { return str.split(" ").map(w => w[0].toLocaleUpperCase() + w.slice(1)).join(" "); },
