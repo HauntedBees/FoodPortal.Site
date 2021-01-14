@@ -3,13 +3,14 @@
 	<v-sheet rounded class="pa-5">
 		<h2 class="mb-2">Spiceapedia</h2>
 		<p>
-			Hey hi welcome. This is a website where you can learn about spices, herbs, and spice blends. You can find what seasonings go best with different
+			Howdy hello there. This is a website where you can learn about spices, herbs, and spice blends. You can find what seasonings go best with different
 			foods and what dishes they're most commonly used in. It's a hoot. Select a spice to see more information, or start typing into that search bar up
 			there to find spices!
 		</p>
 		<p>
 			You can automatically filter by some things by clicking on highlighted words in information cards, such as region names, foods, and flavors. You
-			can also do some advanced searching by typing things like <code>foods:potato</code> or <code>dishes:marinade</code> in the search bar!
+			can also do some advanced searching by typing things like <router-link to="/spice/q/with:potato"><code>with:potato</code></router-link> or 
+			<router-link to="/spice/q/dish:marinade"><code>dish:marinade</code></router-link> in the search bar!
 		</p>
 		<p>
 			If you have any suggestions, corrections, additions, or comments, you can contact me at <a href="mailto:fench@hauntedbees.com">fench@hauntedbees.com</a> 

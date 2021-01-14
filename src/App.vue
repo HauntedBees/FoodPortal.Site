@@ -31,13 +31,26 @@ export default Vue.extend({
 		icon() {
 			switch(this.$route.matched[0].path) {
 				case "/world": return "1F5FA";
-				case "/vegan": return "1F33F";
+				case "/vegan": return "1F955";
+				case "/spice": return "1F33F";
 				default: return "1F35E";
 			}
 		}
 	},
 	methods: {
-		Search() { this.$router.push("/world/search/" + this.searchQuery); }
+		Search() {
+			let prefix = "";
+			switch(this.$route.matched[0].path) {
+				case "/world": prefix = "/world/search/"; break;
+				case "/vegan": return; //console.log("TO DO"); break;
+				case "/spice": prefix = "/spice/q/"; break;
+			}
+			const sq = this.searchQuery.trim();
+			if((this.$route.path.indexOf(prefix) === 0 && sq === "") || sq !== "") {
+				const potentialRoute = prefix + sq;
+				if (potentialRoute !== "" && this.$route.path !== potentialRoute) { this.$router.push(potentialRoute); }
+			}
+		}
 	}
 });
 </script>

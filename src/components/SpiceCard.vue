@@ -23,11 +23,13 @@
                 <v-row>
                     <v-col cols="12" md="6" class="pb-0">
                         <div>
-                            <strong>Origin: </strong> {{spice.origin}}
+                            <strong>Origin: </strong> <router-link :to="'/spice/q/origin:' + spice.origin">{{spice.origin}}</router-link>
                         </div>
                         <div class="comma-list">
-                            <strong>Flavors: </strong> 
-                            <span v-for="i in spice.flavors" :key="i">{{Flavors[i]}}</span>
+                            <strong>Flavors: </strong>
+                            <span v-for="i in spice.flavors" :key="i">
+                                <router-link :to="'/spice/q/flavor:' + Flavors[i]">{{Flavors[i]}}</router-link>
+                            </span>
                         </div>
                         <div v-if="!skipRelations && spice.relatedSpices.length" class="comma-list">
                             <strong>Related: </strong> 
@@ -39,11 +41,15 @@
                     <v-col cols="12" md="6" class="pb-0">
                         <div v-if="spice.foods.length" class="comma-list">
                             <strong>Serve On: </strong> 
-                            <span v-for="i in spice.foods" :key="i">{{Foods[i]}}</span>
+                            <span v-for="i in spice.foods" :key="i">
+                                <router-link :to="'/spice/q/with:' + Foods[i]">{{Foods[i]}}</router-link>
+                            </span>
                         </div>
                         <div v-if="spice.dishes.length" class="comma-list">
                             <strong>Use In: </strong> 
-                            <span v-for="i in spice.dishes" :key="i">{{DishTypes[i]}}</span>
+                            <span v-for="i in spice.dishes" :key="i">
+                                <router-link :to="'/spice/q/dish:' + DishTypes[i]">{{DishTypes[i]}}</router-link>
+                            </span>
                         </div>
                         <div v-if="!skipRelations && spice.pairsWith.length" class="comma-list">
                             <strong>Pairs With: </strong> 

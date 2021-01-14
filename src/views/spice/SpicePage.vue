@@ -12,11 +12,10 @@
 		</v-row>
 	</v-sheet>
 	<v-sheet rounded class="pa-5" v-if="!spice">
-		<h1 class="mb-1">I don't know what that is.</h1>
+		<h1 class="mb-1">I don't know what spice that is.</h1>
 		<p>
-			I don't know what you were trying to see, but we don't have a page for that. Click one of the categories to see products
-			that match, or click the title at the top of the page to go back to the home page. I don't know what "{{$route.params.id}}"
-			is, so I can't give you a page for that.
+			Sorry, we don't know anything about "{{$route.params.id}}." Try looking up one of the spices we do know about, or searching for something
+			in that search box up there!
 		</p>
 	</v-sheet>
 </v-container>
