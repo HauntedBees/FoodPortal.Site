@@ -1,7 +1,18 @@
 <template>
 	<v-app id="app">
 		<v-app-bar app dense flat>
-			<Emoji class="mr-5" :emoji="icon"/>
+			<v-menu offset-y>
+				<template v-slot:activator="{ on, attrs }">
+					<v-btn class="top-btn px-0" v-bind="attrs" v-on="on">
+						<Emoji class="mr-5" :emoji="icon"/>
+					</v-btn>
+				</template>
+				<v-list>
+					<v-list-item :class="{'active': path === '/world'}"><router-link to="/world">Areund the World</router-link></v-list-item>
+					<v-list-item :class="{'active': path === '/vegan'}"><router-link to="/vegan">Alt. Food Reviews</router-link></v-list-item>
+					<v-list-item :class="{'active': path === '/spice'}"><router-link to="/spice">Spiceapedia</router-link></v-list-item>
+				</v-list>
+			</v-menu>
 			<v-toolbar-title class="mr-12 hidden-sm-and-down">
 				<router-link :to="$route.matched[0].path">{{name}}</router-link>
 			</v-toolbar-title>
@@ -35,7 +46,8 @@ export default Vue.extend({
 				case "/spice": return "1F33F";
 				default: return "1F35E";
 			}
-		}
+		},
+		path() { return this.$route.matched[0].path }
 	},
 	methods: {
 		Search() {

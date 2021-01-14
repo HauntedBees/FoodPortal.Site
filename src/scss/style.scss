@@ -13,6 +13,10 @@ a {
     text-decoration: none;
     &:hover { text-decoration: underline }
 }
+.active a {
+    font-weight: bold;
+    color: #FFFFFF!important;
+}
 .dotted-underline {
     text-decoration: underline;
     text-decoration-style: dashed;
@@ -22,6 +26,11 @@ a {
 .v-card__title { word-break: normal!important }
 
 .emoji { vertical-align: middle }
+
+.top-btn {
+    box-shadow: none!important;
+    min-width: 1px!important;
+}
 
 // #region Cards
 .card--date {
@@ -117,10 +126,4 @@ $mapPathActiveColor: #FFFF4F;
     }
 }
 // #endregion
-// #endregion
-// #region "Alt. Food"
-.food-active a {
-    font-weight: bold;
-    color: #FFFFFF!important;
-}
 // #endregion
