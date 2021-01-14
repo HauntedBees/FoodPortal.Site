@@ -1,11 +1,11 @@
 <template>
 <v-container>
 	<v-sheet shaped class="pa-5">
-		<h2>Legal Deets, Privacy Policy, etc.</h2>
+		<h2>Legal Deets and Such</h2>
         <p>
             This site is © 2018-{{(new Date()).getFullYear()}} <a href="mailto:fench@hauntedbees.com">Sean Finch</a> and <a href="https://www.hauntedbees.com/">Haunted Bees Productions</a>.
             All source code is licensed under the <ax href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU AGPLv3 license</ax>. 
-            All photographs and text are my own and are licensed under the <ax href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license.</ax>
+            All photographs and text are my own (unless otherwise specified) and are licensed under the <ax href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license.</ax>
             Emoji display is handled by <ax href="https://github.com/twitter/twemoji">Twemoji</ax>, which is licensed under the <ax href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license.</ax>
             The full site source containing all code, text, and images, is available <ax href="https://github.com/HauntedBees/FoodPortal.Site">on GitHub</ax>. 
         </p>

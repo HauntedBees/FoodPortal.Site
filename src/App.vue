@@ -16,7 +16,7 @@
 			<v-toolbar-title class="mr-12 hidden-sm-and-down">
 				<router-link :to="$route.matched[0].path">{{name}}</router-link>
 			</v-toolbar-title>
-			<v-text-field style="max-width:80%" prepend-inner-icon="mdi-card-search" dense flat hide-details rounded solo-inverted 
+			<v-text-field v-if="path!==''" style="max-width:80%" prepend-inner-icon="mdi-card-search" dense flat hide-details rounded solo-inverted 
 				v-model="searchQuery" @keyup.enter="Search()" />
 		</v-app-bar>
 		<v-main>

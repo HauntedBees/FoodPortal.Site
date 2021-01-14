@@ -2,7 +2,7 @@
 <v-card :class="'mb-2 food-card type-' + food.type.toLowerCase()">
 	<v-row class="d-flex flex-no-wrap justify-space-between">
 		<v-col cols="12" md="2">
-			<img class="px-4 py-2" width="100%" :src="require(`src/assets/img_world/${food.img}`)">
+			<img class="px-2 mx-0 my-0 px-md-0 mx-md-4 my-md-2" :src="`img_world/${food.img}`">
 		</v-col>
 		<v-col cols="12" md="10" class="food-card--content">
 			<v-card-title class="headline pt-1">

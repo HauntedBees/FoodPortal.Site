@@ -18,11 +18,11 @@
 		</v-progress-linear>
 	</v-container>
 	<v-row class="px-3">
-		<v-col cols="7">
+		<v-col cols="12" md="7">
 			<h2 class="mb-1">Recent Foods</h2>
 			<FoodCard v-for="food in recentFoods" :key="food.name" :food="food" />
 		</v-col>
-		<v-col cols="5" class="pl-10">
+		<v-col cols="12" md="5" class="pl-10">
 			<h2 class="mb-1">Spotify Playlists</h2>
 			<v-row>
 				<Emoji size="24" emoji="1F5FA" class="mr-2" />

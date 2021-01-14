@@ -1,10 +1,10 @@
 <template>
 <v-card :class="'mb-2 food-card type-' + Types[spice.type]">
-	<v-row class="d-flex flex-no-wrap justify-space-between align-center">
-		<v-col cols="2">
-			<img class="pl-4" width="100%" :src="require(`src/assets/img_spice/${spice.id}.jpg`)" />
+	<v-row class="d-flex flex-no-wrap justify-space-between">
+		<v-col cols="12" md="2">
+            <img class="px-2 mx-0 my-0 px-md-0 mx-md-4 my-md-2" :src="`img_spice/${spice.id}.jpg`">
 		</v-col>
-		<v-col cols="10" class="food-card--content pl-0 pb-1">
+		<v-col cols="12" md="10" class="food-card--content pl-0 pb-1">
 			<v-card-title class="headline pt-1">
 				<Emoji :emoji="spice.emoji" size="16" class="mr-1" />
 				{{spice.name}}

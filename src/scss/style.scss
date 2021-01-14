@@ -48,6 +48,8 @@ a.no-line:hover { text-decoration: none }
     padding-left: 2px!important;
 }
 .food-card {
+    & img { width: 100% }
+
     width: 100%;
     & .food-card--content { width: 100% }
 
