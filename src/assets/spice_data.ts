@@ -47,7 +47,7 @@ export interface Spice {
     type: number;
 }
 
-const Spices: Spice[] = [{
+const Spices:Spice[] = [{
     "synonyms": ["Jamaica pimenta", "myrtle pepper"],
     "description": "These dried fruits are an important ingredient in Caribbean cuisine.",
     "dishes": [0, 3, 12, 4, 6],
@@ -1622,3 +1622,6 @@ const Spices: Spice[] = [{
     "type": 2
 }];
 export default Spices;
+
+export const SpiceXref:{[key:string]:Spice} = {};
+Spices.forEach(s => SpiceXref[s.id] = s);

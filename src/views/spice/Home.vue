@@ -18,7 +18,7 @@
 	</v-sheet>
 	<v-row class="px-3">
 		<v-col cols="12">
-			<h2 class="mb-1">Random Herbs/Spices</h2>
+			<h2 class="mb-1">Random Seasonings</h2>
 			<SpiceCard v-for="spice in spices" :key="spice.id" :spice="spice" />
 		</v-col>
 	</v-row>

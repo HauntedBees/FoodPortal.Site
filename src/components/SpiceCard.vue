@@ -21,7 +21,7 @@
                     </span>
                 </div>
                 <v-row>
-                    <v-col cols="12" md="6">
+                    <v-col cols="12" md="6" class="pb-0">
                         <div>
                             <strong>Origin: </strong> {{spice.origin}}
                         </div>
@@ -29,12 +29,14 @@
                             <strong>Flavors: </strong> 
                             <span v-for="i in spice.flavors" :key="i">{{Flavors[i]}}</span>
                         </div>
-                        <div v-if="spice.relatedSpices.length" class="comma-list">
+                        <div v-if="!skipRelations && spice.relatedSpices.length" class="comma-list">
                             <strong>Related: </strong> 
-                            <span v-for="i in spice.relatedSpices" :key="i">{{Spices[i].name}}</span>
+                            <span v-for="i in spice.relatedSpices" :key="i">
+                                <router-link :to="'/spice/' + Spices[i].id">{{Spices[i].name}}</router-link>
+                            </span>
                         </div>
                     </v-col>
-                    <v-col cols="12" md="6">
+                    <v-col cols="12" md="6" class="pb-0">
                         <div v-if="spice.foods.length" class="comma-list">
                             <strong>Serve On: </strong> 
                             <span v-for="i in spice.foods" :key="i">{{Foods[i]}}</span>
@@ -43,14 +45,16 @@
                             <strong>Use In: </strong> 
                             <span v-for="i in spice.dishes" :key="i">{{DishTypes[i]}}</span>
                         </div>
-                        <div v-if="spice.pairsWith.length" class="comma-list">
+                        <div v-if="!skipRelations && spice.pairsWith.length" class="comma-list">
                             <strong>Pairs With: </strong> 
-                            <span v-for="i in spice.pairsWith" :key="i">{{Spices[i].name}}</span>
+                            <span v-for="i in spice.pairsWith" :key="i">
+                                <router-link :to="'/spice/' + Spices[i].id">{{Spices[i].name}}</router-link>
+                            </span>
                         </div>
                     </v-col>
                 </v-row>
 			</v-card-subtitle>
-            <v-card-subtitle class="float-right mb-0 pb-0 text-caption">
+            <v-card-subtitle class="float-right mb-0 py-0 text-caption">
                 "<ax :href="spice.license.imgURL">{{spice.license.imgName}}</ax>"
                  by 
                 <ax :href="spice.license.authorURL">{{spice.license.authorName}}</ax>
@@ -73,5 +77,6 @@ export default class FoodCard extends Vue {
     Spices = Spices;
     Licenses = Licenses;
     @Prop() spice!:Spice;
+    @Prop() skipRelations!:boolean;
 }
 </script>
