@@ -11,8 +11,14 @@ p.indent { text-indent: 1em }
 a {
     color: #B2DDFF!important;
     text-decoration: none;
-    &:hover { text-decoration: underline }
+    &:hover {
+        text-decoration: underline;
+        & > .v-card {
+            background-color: #828282!important;
+        }
+    }
 }
+a.no-line:hover { text-decoration: none }
 .active a {
     font-weight: bold;
     color: #FFFFFF!important;
