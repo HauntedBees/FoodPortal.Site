@@ -19,7 +19,7 @@
             We use a self-hosted <ax href="https://awstats.sourceforge.io/">AWStats</ax> installation for webpage analytics. Your data will never leave Haunted Bees'
             servers or be shared with anybody else. We just want to know where people are coming from in the event this page gets popular or something, you know what
             I mean? Like, do we thank some blogger? A Facebook post? Reddit? Only one way to find out and that's analytics, baby! If you're really worried about your 
-            data and such, check out <a href="https://www.hauntedbees.com/main/privacypolicy">our full privacy policy</a> for more information.
+            data and such, check out <a href="https://www.hauntedbees.com/privacypolicy">our full privacy policy</a> for more information.
         </p>
 	</v-sheet>
 </v-container>

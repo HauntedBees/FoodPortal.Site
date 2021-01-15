@@ -2,12 +2,12 @@
 <v-container>
 	<v-row>
 		<SideTopPanel>
-			<template v-slot:top>
+			<template #top>
 				<WorldMap :data="Data" :focus="mapid" :realid="$route.params.id" />
 				<v-divider/>
 			</template>
-            <template v-slot:header>Countries</template>
-			<template v-slot:content>
+            <template #header>Countries</template>
+			<template #content>
 				<v-tabs centered v-model="tab" show-arrows>
 					<v-tabs-slider />
 					<v-tab class="px-0 mx-0" v-for="value in CountryLetters" :key="value.letter">
@@ -24,14 +24,14 @@
 					</v-list>
 				</v-tabs-items>
 			</template>
-            <template v-slot:headerb>
+            <template #headerb>
 				Ingredients 
 				<v-chip class="ml-1" x-small v-if="dietfilters.length" @click="ResetDietFilter()">
 					{{dietfilters.length}}
 					<v-icon class="ml-2" x-small>mdi-close</v-icon>
 				</v-chip>
 			</template>
-			<template v-slot:contentb>
+			<template #contentb>
 				<v-row class="px-2 pr-3 mb-0">
 					<v-col cols="12" md="6" class="pa-2" v-for="diet in DietaryRestrictions" :key="diet.name">
 						<v-chip style="width:100%" @click="ToggleFilter(diet)">
@@ -41,14 +41,14 @@
 					</v-col>
 				</v-row>
 			</template>
-            <template v-slot:headerc>
+            <template #headerc>
 				Dishes 
 				<v-chip class="ml-1" x-small v-if="dishfilters.length" @click="ResetDishFilter()">
 					{{dishfilters.length}}
 					<v-icon class="ml-2" x-small>mdi-close</v-icon>
 				</v-chip>
 			</template>
-			<template v-slot:contentc>
+			<template #contentc>
 				<v-row class="px-2 pr-3 mb-0">
 					<v-col cols="12" md="6" class="pa-2" v-for="dish in DishTypes" :key="dish.name">
 						<v-chip style="width:100%" @click="ToggleFilter(dish)">
