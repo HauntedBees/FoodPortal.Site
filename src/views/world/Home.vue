@@ -25,18 +25,24 @@
 		<v-col cols="12" md="5" class="pl-10">
 			<h2 class="mb-1">Spotify Playlists</h2>
 			<v-row>
-				<Emoji size="24" emoji="1F5FA" class="mr-2" />
-				<ax href="https://open.spotify.com/user/1221454990/playlist/2ci7E0F6B3ryQzWoya5eGJ?si=dQfOVY8QQ2S0_vf9Pn30mA">Areund the World</ax>	
+				<v-col cols="12">
+					<Emoji size="24" emoji="1F5FA" class="mr-2" />
+					<ax href="https://open.spotify.com/user/1221454990/playlist/2ci7E0F6B3ryQzWoya5eGJ?si=dQfOVY8QQ2S0_vf9Pn30mA">Areund the World</ax>	
+				</v-col>
 			</v-row>
 			<v-row>
-				<Emoji size="24" emoji="1F3C6" class="mr-2" />
-				<ax href="https://open.spotify.com/user/1221454990/playlist/0UNMZqyV5PEsH323LI2IfY?si=fB-Lyv6DRRqfyXtw4DSpmg">Favorites of the World</ax>	
+				<v-col cols="12">
+					<Emoji size="24" emoji="1F3C6" class="mr-2" />
+					<ax href="https://open.spotify.com/user/1221454990/playlist/0UNMZqyV5PEsH323LI2IfY?si=fB-Lyv6DRRqfyXtw4DSpmg">Favorites of the World</ax>	
+				</v-col>
 			</v-row>
 			<h2 class="my-1">Random Songs</h2>
 			<v-row>
-				<ul class="show-flag">
-					<SongItem v-for="song in randomSongs" :key="song.name" :song="song" :showFlag="true" />
-				</ul>
+				<v-col cols="12">
+					<ul class="show-flag">
+						<SongItem v-for="song in randomSongs" :key="song.name" :song="song" :showFlag="true" class="mt-1" />
+					</ul>
+				</v-col>
 			</v-row>
 		</v-col>
 	</v-row>
