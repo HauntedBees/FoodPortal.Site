@@ -1,59 +1,61 @@
 <template>
 <v-container>
 	<v-row>
-        <h4 class="pa-2 pl-4">{{title}}</h4>
-		<SpiceCard v-for="spice in results" :key="spice.id" :spice="spice" />
-        <v-sheet v-if="results.length === 0" rounded class="pa-5" style="width:100%">
-            Sorry, nothing matches that search query. You can search for names of things, or try typing filters like these:
-            <ul>
-                <li>
-                    <code>origin:South Asian</code> to find seasonings from a certain region.
-                    <v-btn v-if="!showOrigins" color="primary" @click="showOrigins=true" x-small>Show Available Origins</v-btn>
-                    <span v-if="showOrigins" class="comma-list">
-                        <span v-for="f in Origins" :key="f">
-                            <router-link :to="'/spice/q/origin:' + f">
-                                <code>{{f}}</code>
-                            </router-link>
+        <v-col cols="12">
+            <h4 class="pa-2 pl-4">{{title}}</h4>
+            <SpiceCard v-for="spice in results" :key="spice.id" :spice="spice" />
+            <v-sheet v-if="results.length === 0" rounded class="pa-5" style="width:100%">
+                Sorry, nothing matches that search query. You can search for names of things, or try typing filters like these:
+                <ul>
+                    <li>
+                        <code>origin:South Asian</code> to find seasonings from a certain region.
+                        <v-btn v-if="!showOrigins" color="primary" @click="showOrigins=true" x-small>Show Available Origins</v-btn>
+                        <span v-if="showOrigins" class="comma-list">
+                            <span v-for="f in Origins" :key="f">
+                                <router-link :to="'/spice/q/origin:' + f">
+                                    <code>{{f}}</code>
+                                </router-link>
+                            </span>
                         </span>
-                    </span>
-                </li>
-                <li>
-                    <code>with:potato</code> to find seasonings that go well with certain ingredients.
-                    <v-btn v-if="!showFoods" color="primary" @click="showFoods=true" x-small>Show Available Ingredients</v-btn>
-                    <span v-if="showFoods" class="comma-list">
-                        <span v-for="f in Foods" :key="f">
-                            <router-link :to="'/spice/q/with:' + f">
-                                <code>{{f}}</code>
-                            </router-link>
+                    </li>
+                    <li>
+                        <code>with:potato</code> to find seasonings that go well with certain ingredients.
+                        <v-btn v-if="!showFoods" color="primary" @click="showFoods=true" x-small>Show Available Ingredients</v-btn>
+                        <span v-if="showFoods" class="comma-list">
+                            <span v-for="f in Foods" :key="f">
+                                <router-link :to="'/spice/q/with:' + f">
+                                    <code>{{f}}</code>
+                                </router-link>
+                            </span>
                         </span>
-                    </span>
-                </li>
-                <li>
-                    <code>dish:marinade</code> to find seasonings that go well in certain dishes.
-                    <v-btn v-if="!showDishes" color="primary" @click="showDishes=true" x-small>Show Available Dishes</v-btn>
-                    <span v-if="showDishes" class="comma-list">
-                        <span v-for="f in DishTypes" :key="f">
-                            <router-link :to="'/spice/q/dish:' + f">
-                                <code>{{f}}</code>
-                            </router-link>
+                    </li>
+                    <li>
+                        <code>dish:marinade</code> to find seasonings that go well in certain dishes.
+                        <v-btn v-if="!showDishes" color="primary" @click="showDishes=true" x-small>Show Available Dishes</v-btn>
+                        <span v-if="showDishes" class="comma-list">
+                            <span v-for="f in DishTypes" :key="f">
+                                <router-link :to="'/spice/q/dish:' + f">
+                                    <code>{{f}}</code>
+                                </router-link>
+                            </span>
                         </span>
-                    </span>
-                </li>
-                <li>
-                    <code>flavor:citrusy</code> to find seasonings with a certain flavor.
-                    <v-btn v-if="!showFlavors" color="primary" @click="showFlavors=true" x-small>Show Available Flavors</v-btn>
-                    <span v-if="showFlavors" class="comma-list">
-                        <span v-for="f in Flavors" :key="f">
-                            <router-link :to="'/spice/q/flavor:' + f">
-                                <code>{{f}}</code>
-                            </router-link>
+                    </li>
+                    <li>
+                        <code>flavor:citrusy</code> to find seasonings with a certain flavor.
+                        <v-btn v-if="!showFlavors" color="primary" @click="showFlavors=true" x-small>Show Available Flavors</v-btn>
+                        <span v-if="showFlavors" class="comma-list">
+                            <span v-for="f in Flavors" :key="f">
+                                <router-link :to="'/spice/q/flavor:' + f">
+                                    <code>{{f}}</code>
+                                </router-link>
+                            </span>
                         </span>
-                    </span>
-                </li>
-            </ul>
-            You can even combine queries and filters by separating them with commas! If you want to find cold spices that go well with melon,
-            try <router-link to="/spice/q/with:beef,flavor:cold"><code>with:melon,flavor:cold</code></router-link>!
-        </v-sheet>
+                    </li>
+                </ul>
+                You can even combine queries and filters by separating them with commas! If you want to find cold spices that go well with melon,
+                try <router-link to="/spice/q/with:beef,flavor:cold"><code>with:melon,flavor:cold</code></router-link>!
+            </v-sheet>
+        </v-col>
 	</v-row>
 </v-container>
 </template>
