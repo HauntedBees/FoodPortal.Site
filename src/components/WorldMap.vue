@@ -14,7 +14,15 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import svgPanZoom from 'svg-pan-zoom';
 import World from 'src/assets/robinson';
+import Hammer from 'hammerjs';
 import { CountryInfo } from 'src/assets/world_data';
+interface Point { x:number; y:number }
+interface HammerEvent { type: string; deltaX:number; deltaY:number; scale:number; center:Point }
+interface SVGEvent extends Event { target:SVGElement }
+interface SVGOptions {
+    instance:typeof svgPanZoom;
+    svgElement:SVGElement;
+}
 @Component
 export default class WorldMap extends Vue {
     target = "";
@@ -29,10 +37,41 @@ export default class WorldMap extends Vue {
         return this.data[a.id] === undefined ? "" : "completed";
     }
     mounted() {
+        let hammer:HammerManager|null = null;
+        const eventsHandler = {
+            haltEventListeners: ["touchstart", "touchend", "touchmove", "touchleave", "touchcancel"],
+            init: function(options:SVGOptions) {
+                const instance = options.instance;
+                let initialScale = 1, pannedX = 0, pannedY = 0;
+                hammer = new Hammer(options.svgElement, { 
+                    inputClass: window.PointerEvent ? Hammer.PointerEventInput : Hammer.TouchInput
+                });
+                hammer.get("pinch").set({ enable: true });
+                hammer.on("panstart panmove", (ev:HammerEvent) => {
+                    if(ev.type === "panstart") {
+                        pannedX = 0;
+                        pannedY = 0;
+                    }
+                  instance.panBy({ x: ev.deltaX - pannedX, y: ev.deltaY - pannedY });
+                  pannedX = ev.deltaX
+                  pannedY = ev.deltaY;
+                });
+                hammer.on("pinchstart pinchmove", (ev:HammerEvent) => {
+                    if(ev.type === "pinchstart") {
+                        initialScale = instance.getZoom();
+                        instance.zoomAtPoint(initialScale * ev.scale, { x: ev.center.x, y: ev.center.y });
+                    }
+                    instance.zoomAtPoint(initialScale * ev.scale, { x: ev.center.x, y: ev.center.y });
+                });
+                options.svgElement.addEventListener("touchmove", (e:Event) => e.preventDefault());
+            },
+            destroy: function() { if(hammer) { hammer.destroy(); } }
+        }
         const mapCtrl = svgPanZoom(".svg-map", {
             zoomEnabled: true,
             fit: true,
-            center: true
+            center: true,
+            customEventsHandler: eventsHandler
         });
         if(this.focus) {    
             const targ:unknown = document.getElementById(this.focus);
@@ -53,7 +92,10 @@ export default class WorldMap extends Vue {
     }
     Click(a:SVGEvent) {
         if(this.data[a.target.id]) {
-            this.$router.push("/world/" + a.target.id);
+            const newPath = "/world/" + a.target.id;
+            if(newPath !== this.$route.path) {
+                this.$router.push(newPath);
+            }
         }
     }
     MouseOver(a:SVGEvent) {
@@ -67,5 +109,4 @@ export default class WorldMap extends Vue {
     }
     MouseOut() { this.showBtn = false; }
 }
-interface SVGEvent extends Event { target:SVGElement }
 </script>
