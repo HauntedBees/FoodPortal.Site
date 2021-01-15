@@ -1,5 +1,5 @@
 <template>
-<v-card :class="'mb-2 food-card type-' + food.type.id">
+<v-card :class="'mb-5 mt-3 food-card type-' + food.type.id">
 	<v-row class="d-flex flex-no-wrap justify-space-between">
 		<v-col cols="12" class="food-card--content">
 			<v-card-title class="headline pt-1 pb-6">

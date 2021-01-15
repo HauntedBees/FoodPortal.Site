@@ -1,5 +1,5 @@
 <template>
-<v-card :class="'mb-2 food-card type-' + food.type.toLowerCase()">
+<v-card :class="'mb-5 mt-3 food-card type-' + food.type.toLowerCase()">
 	<v-row class="d-flex flex-no-wrap justify-space-between">
 		<v-col cols="12" md="2">
 			<img class="px-2 mx-0 my-0 px-md-0 mx-md-4 my-md-2" :src="`${$rootpath}/img_world/${food.img}`">
