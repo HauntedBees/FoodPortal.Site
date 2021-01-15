@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Emoji from "src/components/Emoji.vue";
 import SpanTooltip from "src/components/SpanTooltip.vue";
+import SideTopPanel from "src/components/SideTopPanel.vue";
 import ExternalLink from "src/components/ExternalLink.vue";
 
 import { SvgMap } from "vue-svg-map";
@@ -13,6 +14,7 @@ import SpiceCard from "src/components/SpiceCard.vue";
 
 Vue.component("ax", ExternalLink);
 Vue.component("Emoji", Emoji);
+Vue.component("SideTopPanel", SideTopPanel);
 Vue.component("spantt", SpanTooltip);
 
 Vue.component("WorldMap", WorldMap);

@@ -1,11 +1,13 @@
 <template>
 <v-container>
 	<v-row>
-		<v-col cols="12" md="2">
-			<v-sheet class="pa-1" shaped>
+		<SideTopPanel>
+			<template v-slot:top>
 				<WorldMap :data="Data" :focus="mapid" :realid="$route.params.id" />
 				<v-divider/>
-				<h4 class="pa-2">Countries</h4>
+			</template>
+            <template v-slot:header>Countries</template>
+			<template v-slot:content>
 				<v-tabs centered v-model="tab" show-arrows>
 					<v-tabs-slider />
 					<v-tab class="px-0 mx-0" v-for="value in CountryLetters" :key="value.letter">
@@ -21,7 +23,15 @@
 						</v-list-item>
 					</v-list>
 				</v-tabs-items>
-				<h4 class="pa-2">Ingredients</h4>
+			</template>
+            <template v-slot:headerb>
+				Ingredients 
+				<v-chip class="ml-1" x-small v-if="dietfilters.length" @click="ResetDietFilter()">
+					{{dietfilters.length}}
+					<v-icon class="ml-2" x-small>mdi-close</v-icon>
+				</v-chip>
+			</template>
+			<template v-slot:contentb>
 				<v-row class="px-2 pr-3 mb-0">
 					<v-col cols="12" md="6" class="pa-2" v-for="diet in DietaryRestrictions" :key="diet.name">
 						<v-chip style="width:100%" @click="ToggleFilter(diet)">
@@ -30,7 +40,15 @@
 						</v-chip>
 					</v-col>
 				</v-row>
-				<h4 class="pa-2">Dishes</h4>
+			</template>
+            <template v-slot:headerc>
+				Dishes 
+				<v-chip class="ml-1" x-small v-if="dishfilters.length" @click="ResetDishFilter()">
+					{{dishfilters.length}}
+					<v-icon class="ml-2" x-small>mdi-close</v-icon>
+				</v-chip>
+			</template>
+			<template v-slot:contentc>
 				<v-row class="px-2 pr-3 mb-0">
 					<v-col cols="12" md="6" class="pa-2" v-for="dish in DishTypes" :key="dish.name">
 						<v-chip style="width:100%" @click="ToggleFilter(dish)">
@@ -39,8 +57,8 @@
 						</v-chip>
 					</v-col>
 				</v-row>
-			</v-sheet>
-		</v-col>
+			</template>
+		</SideTopPanel>
 		<v-col cols="12" md="10">
 			<WorldFilter v-if="dishfilters.length > 0 || dietfilters.length > 0" :dishfilters="dishfilters" :dietfilters="dietfilters" />
 			<router-view v-if="dishfilters.length === 0 && dietfilters.length === 0" />
@@ -110,6 +128,14 @@ export default class WorldPage extends Vue {
 		}
 		this.dietfilters = this.DietaryRestrictions.filter(f => f.status !== 0);
 		this.dishfilters = this.DishTypes.filter(f => f.status !== 0);
+	}
+	ResetDietFilter() {
+		this.DietaryRestrictions.forEach(d => { d.status = 0; });
+		this.dietfilters = [];
+	}
+	ResetDishFilter() {
+		this.DishTypes.forEach(d => { d.status = 0; });
+		this.dishfilters = [];
 	}
 }
 </script>

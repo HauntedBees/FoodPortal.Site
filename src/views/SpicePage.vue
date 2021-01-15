@@ -1,22 +1,26 @@
 <template>
 <v-container>
 	<v-row>
-		<v-col cols="12" md="2">
-			<v-sheet class="pa-1 pb-3" shaped>
-				<h4 class="pa-2 pl-4">Herbs</h4>
+        <SideTopPanel>
+            <template v-slot:header>Herbs</template>
+            <template v-slot:content>
                 <div :class="'px-5 pb-1' + (activeRoute === s.id ? ' active' : '')" v-for="s in herbs" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
-				<h4 class="pa-2 pl-4">Spices</h4>
+            </template>
+            <template v-slot:headerb>Spices</template>
+            <template v-slot:contentb>
                 <div :class="'px-5 pb-1' + (activeRoute === s.id ? ' active' : '')" v-for="s in spices" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
-				<h4 class="pa-2 pl-4">Spice Blends</h4>
+            </template>
+            <template v-slot:headerc>Blends</template>
+            <template v-slot:contentc>
                 <div :class="'px-5 pb-1' + (activeRoute === s.id ? ' active' : '')" v-for="s in blends" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
-			</v-sheet>
-		</v-col>
+            </template>
+        </SideTopPanel>
 		<v-col cols="12" md="10">
 			<router-view />
 		</v-col>

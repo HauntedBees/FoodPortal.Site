@@ -1,16 +1,16 @@
 <template>
 <v-container>
 	<v-row>
-		<v-col cols="12" md="2">
-			<v-sheet class="pa-1 pb-3" shaped>
-				<h4 class="pa-2">Categories</h4>
+        <SideTopPanel>
+            <template v-slot:header>Categories</template>
+            <template v-slot:content>
                 <div :class="'px-5 pb-1' + (activeRoute === cat.id ? ' active' : '')" v-for="cat in FoodCategories" :key="cat.name">
                     <router-link :to="'/vegan/' + cat.id">
                         <Emoji :emoji="cat.emoji" size="16" class="mr-1" />  {{cat.name}}
                     </router-link>
                 </div>
-			</v-sheet>
-		</v-col>
+            </template>
+        </SideTopPanel>
 		<v-col cols="12" md="10">
 			<router-view />
 		</v-col>
