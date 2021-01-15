@@ -3,7 +3,5 @@ import Vuetify from 'vuetify/lib';
 Vue.use(Vuetify);
 export default new Vuetify({
     rtl: false,
-    theme: {
-        dark: true
-    }
+    theme: { dark: true }
 });
