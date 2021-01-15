@@ -10,7 +10,9 @@ const routes:Array<RouteConfig> = [
     { path: "favorites", component: WorldFavorites },
     { path: "abeut", component: Abeut },
     { path: "filter/:filters", component: WorldFilter },
-    { path: "search/:query", component: WorldSearch },
+    { path: "q/:query", component: WorldSearch },
+    { path: "q", redirect: "/world" },
+    { path: "filter", redirect: "/world" },
     { path: ":id", component: WorldCountry }
 ];
 export default routes;

@@ -53,8 +53,8 @@ export default Vue.extend({
 		Search() {
 			let prefix = "";
 			switch(this.$route.matched[0].path) {
-				case "/world": prefix = "/world/search/"; break;
-				case "/vegan": return; //console.log("TO DO"); break;
+				case "/world": prefix = "/world/q/"; break;
+				case "/vegan": prefix = "/vegan/q/"; break;
 				case "/spice": prefix = "/spice/q/"; break;
 			}
 			const sq = this.searchQuery.trim();
