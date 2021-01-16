@@ -1,6 +1,6 @@
 <template>
 <v-container>
-	<v-sheet shaped class="pa-5">
+	<v-sheet class="rounded-xl pa-5">
 		<h2>The Haunted Bees Food Portal</h2>
         <p class="px-6">
             Hey there! Welcome to the Food Portal! For some reason I do a lot of food things now, I guess. Three food things, to be precise,
@@ -42,7 +42,7 @@
                 </router-link>
             </v-col>
         </v-row>
-        <p class="px-6">
+        <p class="px-6 pt-6">
             Also if you want to see like, privacy policy stuff or whatever, <router-link to="/abeut">we've got that, too</router-link>.
         </p>
 	</v-sheet>
