@@ -1,6 +1,6 @@
 const path = require("path");
 module.exports = {
-    publicPath: "/food-beta/",
+    publicPath: "/food/",
     css: {
       loaderOptions: {
         scss: {}
