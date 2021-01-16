@@ -65,7 +65,8 @@
                  by 
                 <ax :href="spice.license.authorURL">{{spice.license.authorName}}</ax>
                   is licensed under the 
-                <ax :href="Licenses[spice.license.licenseName]">{{spice.license.licenseName}}</ax>.
+                <ax :href="Licenses[spice.license.licenseName]">{{spice.license.licenseName}}</ax>
+                 License.
             </v-card-subtitle>
 		</v-col>
 	</v-row>
