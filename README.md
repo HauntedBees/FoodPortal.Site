@@ -4,7 +4,17 @@
 Three websites about food. *Areund the World* is half-blog half-resource as I try to eat food and listen to music from everywhere in the world. *Spiceapedia* is intended to be a single resource for spices and herbs containing information on what to use them with, how to use them, and other useful information. *AltFood Reviews* is a review site for vegan and vegetarian substitutes for non-vegan and non-vegetarian foods.
 
 ## depencencies
-Standard Vue stuff. Fill this in later.
+The following dependencies are used in this project:
+ * [core-js](https://github.com/zloirock/core-js#readme) is licensed under the [https://github.com/zloirock/core-js/blob/master/LICENSE](MIT License).
+ * [Day.js](https://day.js.org/) is licensed under the [https://github.com/iamkun/dayjs/blob/dev/LICENSE](MIT License).
+ * [flag-icon-css](https://flagicons.lipis.dev/) is licensed under the [https://github.com/lipis/flag-icon-css/blob/master/LICENSE](MIT License).
+ * [hammer.js](https://hammerjs.github.io/) is licensed under the [https://github.com/hammerjs/hammer.js/blob/master/LICENSE.md](MIT License).
+ * [svg-pan-zoom](https://github.com/ariutta/svg-pan-zoom) is licensed under the [https://github.com/ariutta/svg-pan-zoom/blob/master/LICENSE](BSD 2-Clause License).
+ * [Vue.js](https://vuejs.org/) is licensed under the [https://github.com/vuejs/vue/blob/dev/LICENSE](MIT License).
+ * [vue-svg-map](https://github.com/VictorCazanave/vue-svg-map) is licensed under the [https://github.com/VictorCazanave/vue-svg-map/blob/master/LICENSE](MIT License).
+ * [Vuetify](https://vuetifyjs.com/en/) is licensed under the [https://github.com/vuetifyjs/vuetify/blob/master/LICENSE.md](MIT License).
+
+Development dependencies can be found in the `package.json` file.
 
 ## license
 This code is licensed under [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.en.html), and its text, data, and art assets are licensed with the [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/legalcode). 

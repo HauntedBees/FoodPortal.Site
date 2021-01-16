@@ -21,6 +21,34 @@
             I mean? Like, do we thank some blogger? A Facebook post? Reddit? Only one way to find out and that's analytics, baby! If you're really worried about your 
             data and such, check out <a href="https://www.hauntedbees.com/privacypolicy">our full privacy policy</a> for more information.
         </p>
+        <h2>Credits</h2>
+        <p>Additional code used in this project is licensed as follows:</p>
+        <ul>
+            <li>
+                <ax href="https://github.com/zloirock/core-js#readme">core-js</ax> is licensed under the <ax href="https://github.com/zloirock/core-js/blob/master/LICENSE">MIT License.</ax>
+            </li>
+            <li>
+                <ax href="https://day.js.org/">Day.js</ax> is licensed under the <ax href="https://github.com/iamkun/dayjs/blob/dev/LICENSE">MIT License.</ax>
+            </li>
+            <li>
+                <ax href="https://flagicons.lipis.dev/">flag-icon-css</ax> is licensed under the <ax href="https://github.com/lipis/flag-icon-css/blob/master/LICENSE">MIT License.</ax>
+            </li>
+            <li>
+                <ax href="https://hammerjs.github.io/">hammer.js</ax> is licensed under the <ax href="https://github.com/hammerjs/hammer.js/blob/master/LICENSE.md">MIT License.</ax>
+            </li>
+            <li>
+                <ax href="https://github.com/ariutta/svg-pan-zoom">svg-pan-zoom</ax> is licensed under the <ax href="https://github.com/ariutta/svg-pan-zoom/blob/master/LICENSE">BSD 2-Clause License.</ax>
+            </li>
+            <li>
+                <ax href="https://vuejs.org/">Vue.js</ax> is licensed under the <ax href="https://github.com/vuejs/vue/blob/dev/LICENSE">MIT License.</ax>
+            </li>
+            <li>
+                <ax href="https://github.com/VictorCazanave/vue-svg-map">vue-svg-map</ax> is licensed under the <ax href="https://github.com/VictorCazanave/vue-svg-map/blob/master/LICENSE">MIT License.</ax>
+            </li>
+            <li>
+                <ax href="https://vuetifyjs.com/en/">Vuetify</ax> is licensed under the <ax href="https://github.com/vuetifyjs/vuetify/blob/master/LICENSE.md">MIT License.</ax>
+            </li>
+        </ul>
 	</v-sheet>
 </v-container>
 </template>
