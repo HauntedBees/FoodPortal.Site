@@ -1,8 +1,6 @@
 import Vue from "vue";
-import Emoji from "src/components/Emoji.vue";
-import SpanTooltip from "src/components/SpanTooltip.vue";
+import { ExternalLink, Emoji, SpanTooltip, ClassDirective } from "bee-vue-gang";
 import SideTopPanel from "src/components/SideTopPanel.vue";
-import ExternalLink from "src/components/ExternalLink.vue";
 
 import { SvgMap } from "vue-svg-map";
 import WorldMap from "src/components/WorldMap.vue";
@@ -12,10 +10,11 @@ import SongItem from "src/components/SongItem.vue";
 import AltFoodCard from "src/components/AltFoodCard.vue";
 import SpiceCard from "src/components/SpiceCard.vue";
 
+Vue.directive("class", ClassDirective);
 Vue.component("ax", ExternalLink);
 Vue.component("Emoji", Emoji);
-Vue.component("SideTopPanel", SideTopPanel);
 Vue.component("spantt", SpanTooltip);
+Vue.component("SideTopPanel", SideTopPanel);
 
 Vue.component("WorldMap", WorldMap);
 Vue.component("SvgMap", SvgMap);

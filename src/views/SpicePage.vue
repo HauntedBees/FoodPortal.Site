@@ -4,19 +4,19 @@
         <SideTopPanel>
             <template #header>Herbs</template>
             <template #content>
-                <div :class="'px-5 pb-1' + (activeRoute === s.id ? ' active' : '')" v-for="s in herbs" :key="s.id">
+                <div v-class.active="activeRoute === s.id" class="px-5 pb-1" v-for="s in herbs" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
             </template>
             <template #headerb>Spices</template>
             <template #contentb>
-                <div :class="'px-5 pb-1' + (activeRoute === s.id ? ' active' : '')" v-for="s in spices" :key="s.id">
+                <div v-class.active="activeRoute === s.id" class="px-5 pb-1" v-for="s in spices" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
             </template>
             <template #headerc>Blends</template>
             <template #contentc>
-                <div :class="'px-5 pb-1' + (activeRoute === s.id ? ' active' : '')" v-for="s in blends" :key="s.id">
+                <div v-class.active="activeRoute === s.id" class="px-5 pb-1" v-for="s in blends" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
             </template>

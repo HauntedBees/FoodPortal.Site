@@ -4,7 +4,7 @@
         <SideTopPanel>
             <template #header>Categories</template>
             <template #content>
-                <div :class="'px-5 pb-1' + (activeRoute === cat.id ? ' active' : '')" v-for="cat in FoodCategories" :key="cat.name">
+                <div v-class.active="activeRoute===cat.id" class="px-5 pb-1" v-for="cat in FoodCategories" :key="cat.name">
                     <router-link :to="'/vegan/' + cat.id">
                         <Emoji :emoji="cat.emoji" size="16" class="mr-1" />  {{cat.name}}
                     </router-link>

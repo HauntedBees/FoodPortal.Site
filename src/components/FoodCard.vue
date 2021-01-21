@@ -23,7 +23,7 @@
 				<ul class="card--detail-list">
 					<li v-for="r in food.diet" :key="r.type">
 						<spantt :tooltip="r.type">
-							<Emoji :emoji="DietaryRestrictions[r.type]" size="16" :class="{ 'transparent': r.optional }" />
+							<Emoji :emoji="DietaryRestrictions[r.type]" size="16" v-class.transparent="r.optional===true" />
 						</spantt>
 						{{r.desc}}
 					</li>

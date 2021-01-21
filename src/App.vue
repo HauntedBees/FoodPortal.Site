@@ -8,9 +8,9 @@
 					</v-btn>
 				</template>
 				<v-list>
-					<v-list-item :class="{'active': path === '/world'}"><router-link to="/world">Areund the World</router-link></v-list-item>
-					<v-list-item :class="{'active': path === '/vegan'}"><router-link to="/vegan">Alt. Food Reviews</router-link></v-list-item>
-					<v-list-item :class="{'active': path === '/spice'}"><router-link to="/spice">Spiceapedia</router-link></v-list-item>
+					<v-list-item v-class.active="path==='/world'"><router-link to="/world">Areund the World</router-link></v-list-item>
+					<v-list-item v-class.active="path==='/vegan'"><router-link to="/vegan">Alt. Food Reviews</router-link></v-list-item>
+					<v-list-item v-class.active="path==='/spice'"><router-link to="/spice">Spiceapedia</router-link></v-list-item>
 				</v-list>
 			</v-menu>
 			<v-toolbar-title class="mr-12 hidden-sm-and-down">
