@@ -15,8 +15,8 @@
 					</v-tab>
 				</v-tabs>
 				<v-tabs-items v-model="tab">
-					<v-list dense shaped style="max-height: 400px; overflow-y: scroll">
-						<v-list-item v-for="country in CountryLetters[tab].info" :key="country.code">
+					<v-list ref="activetab" dense shaped style="max-height: 400px; overflow-y: scroll">
+						<v-list-item v-for="country in CountryLetters[tab].info" :key="country.code" :id="'li-' + country.code">
 							<router-link :to="'/world/' + country.code">
 								<span :class="'mr-2 flag-icon flag-icon-' + country.code.toLowerCase()" />{{country.name}}
 							</router-link>
@@ -79,6 +79,7 @@ export default class WorldPage extends Vue {
 	DishTypes:FilterInfo[] = [];
 	dishfilters:FilterInfo[] = [];
 	dietfilters:FilterInfo[] = [];
+	$refs!:{ activetab:Vue };
 	created() {
 		const id = this.$route.params.id;
 		if(id === "" || id === undefined) {
@@ -105,6 +106,17 @@ export default class WorldPage extends Vue {
 				emoji: DishTypes[key],
 				status: 0
 			});
+		}
+	}
+	mounted() {
+		const id = this.$route.params.id;
+		if(id !== undefined && id !== "") {
+			const el = document.getElementById("li-" + id);
+			if(!el) { return; }
+			const top = el.offsetTop;
+			if(top > this.$refs.activetab.$el.clientHeight) {
+				this.$refs.activetab.$el.scrollTo(0, top);
+			}
 		}
 	}
 	get mapid() {
