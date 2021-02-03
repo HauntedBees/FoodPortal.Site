@@ -71,7 +71,8 @@ export default class WorldMap extends Vue {
             zoomEnabled: true,
             fit: true,
             center: true,
-            customEventsHandler: eventsHandler
+            customEventsHandler: eventsHandler,
+            zoomScaleSensitivity: 0.5
         });
         if(this.focus) {    
             const targ:unknown = document.getElementById(this.focus);
