@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^food/index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /food/index.html [L]

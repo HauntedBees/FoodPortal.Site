@@ -12,7 +12,7 @@
 				<ax :href="food.url">{{food.name}}
 					<Emoji emoji="1F517" size="16" />
 				</ax>
-				<ax v-if="food.databee" class="ml-3" :href="'https://www.hauntedbees.com/food/getRecipe/' + food.countryCode.toLowerCase() + '/' + food.databee">
+				<ax v-if="food.databee" class="ml-3" :href="DataBeeURL">
 					<spantt tooltip="View the recipe in DataBee format"><Emoji emoji="1F41D" size="16"/></spantt>
 				</ax>
 				<v-spacer/>
@@ -42,5 +42,6 @@ export default class FoodCard extends Vue {
 	DishTypes = DishTypes;
 	DietaryRestrictions = DietaryRestrictions;
     @Prop() food!:FoodInfo;
+	get DataBeeURL() { return `https://www.hauntedbees.com/API/General/Recipe/["${this.food.countryCode?.toLowerCase()}|${this.food.databee}"]`; }
 }
 </script>

@@ -16,7 +16,11 @@
 		</p>
 	</v-sheet>
 	<v-sheet rounded class="pa-5" v-if="country">
-        <h1 class="mb-1"><span :class="'flag-icon flag-icon-' + countryCode.toLowerCase()" /> {{country.name}}</h1>
+        <h1 class="mb-1"><span :class="'flag-icon flag-icon-' + countryCode.toLowerCase()" /> {{country.name}}
+			<ax v-if="country.food.some(f => f.databee)" class="ml-3" :href="DataBeeURL">
+				<spantt tooltip="View this country's recipes in DataBee format"><Emoji emoji="1F41D" size="16"/></spantt>
+			</ax>
+		</h1>
 		<p class="no-big-em" v-html="country.desc"></p>
 		<v-row>
 			<v-col cols="12" md="6">
@@ -80,7 +84,6 @@ export default class WorldCountry extends Vue {
 			document.title = "Unavailable Region - Areund the World";
 		}
 	}
-
 	get countryIndependence() {
 		if(!this.country) { return ""; }
 		if(this.country.independence.match(/^[0-9]/) === null) {
@@ -89,5 +92,6 @@ export default class WorldCountry extends Vue {
 			return dayjs(this.country.independence).local().format("D MMMM, YYYY");
 		}
 	}
+	get DataBeeURL() { return `https://www.hauntedbees.com/API/General/Recipe/["${this.countryCode.toLowerCase()}"]`; }
 }
 </script>
