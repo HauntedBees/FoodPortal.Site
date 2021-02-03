@@ -2032,7 +2032,7 @@ const Data:CountryInfo = {
         music: [
             { name: "Michalis Hatzigiannis - To Kalokairi Mou", url: "https://www.youtube.com/watch?v=gozxtZUkZhQ" },
             { name: "Eleftheria Eleftheriou - Nychtes Kaftes", url: "https://www.youtube.com/watch?v=jicB3KEfP2U" },
-            { name: "I%C5%9Fın Karaca - Dert Bende Derman Sende", url: "https://www.youtube.com/watch?v=oFXvo-f3h0s" },
+            { name: "Işın Karaca - Dert Bende Derman Sende", url: "https://www.youtube.com/watch?v=oFXvo-f3h0s" },
             { name: "Ziynet Sali - Ağlar mıyım? Ağlamam", url: "https://www.youtube.com/watch?v=WyGnyJZN3bI", favorite: true },
             { name: "One - Gimme", url: "https://www.youtube.com/watch?v=Q1AWVb4oYFA" },
             { name: "Minus-One - Alter Ego", url: "https://www.youtube.com/watch?v=k8LcNrqiIFE" },
