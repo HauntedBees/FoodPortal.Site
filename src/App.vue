@@ -20,7 +20,7 @@
 				v-model="searchQuery" @keyup.enter="Search()" />
 		</v-app-bar>
 		<v-main>
-			<router-view :key="$route.fullPath" />
+			<router-view :key="$route.name" />
 		</v-main>
 		<v-footer>
 			<div>

@@ -15,7 +15,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import svgPanZoom from 'svg-pan-zoom';
 import World from 'src/assets/robinson';
 import Hammer from 'hammerjs';
-import { CountryInfo } from 'src/assets/world_data';
+import { CountryLetterInfo } from 'src/assets/world_data';
 interface Point { x:number; y:number }
 interface HammerEvent { type: string; deltaX:number; deltaY:number; scale:number; center:Point }
 interface SVGEvent extends Event { target:SVGElement }
@@ -29,7 +29,7 @@ export default class WorldMap extends Vue {
     ttx = 50; tty = 0;
     showBtn = false;
     World = World;
-    @Prop() data!:CountryInfo;
+    @Prop() data!:{[key:string]: CountryLetterInfo};
     @Prop() focus:string|undefined;
     @Prop() realid:string|undefined;
     LocationClass(a:SVGElement) {

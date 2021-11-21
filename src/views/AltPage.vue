@@ -12,7 +12,7 @@
             </template>
         </SideTopPanel>
 		<v-col cols="12" md="10">
-			<router-view />
+			<router-view :key="$route.fullPath" />
 		</v-col>
 	</v-row>
 </v-container>

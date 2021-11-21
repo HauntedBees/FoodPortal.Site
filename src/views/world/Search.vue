@@ -1,6 +1,8 @@
 <template>
 <v-container>
-	<v-row>
+	<Loader v-if="loading"/>
+	<ErrorMessage v-if="isError"/>
+	<v-row v-if="!loading && !isError">
         <v-col cols="12">
             <h2 class="mb-1">Search Results for "{{query}}"</h2>
             <FoodCard v-for="food in matchingFoods" :key="food.name" :food="food" />
@@ -14,20 +16,22 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { FoodList } from 'src/assets/world_data';
+import { FoodInfo } from 'src/assets/world_data';
+import { bee } from 'src/util/webmethod';
 @Component
 export default class WorldSearch extends Vue {
     query = "";
+    loading = true;
+	isError = false;
+    matchingFoods:FoodInfo[] = [];
 	created() {
 		this.query = this.$route.params.query || "";
         document.title = `Search Results for "${this.query}" - Areund the World`;
-        if(this.query === "") { this.$router.push("/world/"); }
+        if(this.query === "") {
+            this.$router.push("/world/");
+        } else {
+            bee.get<FoodInfo[]>(this, "SearchResults", [this.query]).then(r => { this.matchingFoods = r; }).catch(() => { this.isError = true; });
+        }
 	}
-    get matchingFoods() {
-        const q = this.query.toLowerCase();
-        return FoodList.filter(f => {
-            return f.name.indexOf(q) >= 0 || f.ingredients.some(i => i.indexOf(q) >= 0);
-        }).sort((a, b) => a.name.localeCompare(b.name));
-    }
 }
 </script>

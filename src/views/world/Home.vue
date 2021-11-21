@@ -9,18 +9,20 @@
 		If you just want to see my favorite foods and songs, <router-link to="/world/favorites">click here</router-link>! For the privacy policy and all 
 		that cool nerd stuff, <router-link to="/world/abeut">click here</router-link>!</p>
 	</v-sheet>
-	<v-container class="px-5">
+	<Loader v-if="loading"/>
+	<ErrorMessage v-if="isError"/>
+	<v-container class="px-5" v-if="results">
 		<v-progress-linear class="mx-2 mb-2" height="25" striped :value="letterCountriesPercent">
-			<strong>{{letterCountriesDown}} / {{countriesWithCurrentLetter}} regions starting with '{{currentLetter}}'</strong>
+			<strong>{{results.countriesDownWithCurrentLetter}} / {{results.countriesWithCurrentLetter}} regions starting with '{{results.currentLetter}}'</strong>
 		</v-progress-linear>
 		<v-progress-linear class="mx-2" height="25" striped :value="countryPercent">
-			<strong>{{countriesDown}} / 206 regions of the world</strong>
+			<strong>{{results.countriesDown}} / {{results.totalCountries}} regions of the world</strong>
 		</v-progress-linear>
 	</v-container>
-	<v-row class="px-3">
+	<v-row class="px-3" v-if="results">
 		<v-col cols="12" md="7">
 			<h2 class="mb-1">Recent Foods</h2>
-			<FoodCard v-for="food in recentFoods" :key="food.name" :food="food" />
+			<FoodCard v-for="food in results.latestFoods" :key="food.name" :food="food" />
 		</v-col>
 		<v-col cols="12" md="5" class="pl-10">
 			<h2 class="mb-1">Spotify Playlists</h2>
@@ -40,7 +42,7 @@
 			<v-row>
 				<v-col cols="12">
 					<ul class="show-flag">
-						<SongItem v-for="song in randomSongs" :key="song.name" :song="song" :showFlag="true" class="mt-1" />
+						<SongItem v-for="song in results.randomSongs" :key="song.name" :song="song" :showFlag="true" class="mt-1" />
 					</ul>
 				</v-col>
 			</v-row>
@@ -50,32 +52,27 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import Data, { CountryLetters, FoodList, SongList } from 'src/assets/world_data';
+import { FoodInfo, SongInfo } from 'src/assets/world_data';
+import { bee } from 'src/util/webmethod';
+interface HomepageResponse {
+	currentLetter:string;
+	countriesDownWithCurrentLetter:number;
+	countriesWithCurrentLetter:number;
+	totalCountries:number;
+	countriesDown:number;
+	latestFoods:FoodInfo[];
+	randomSongs:SongInfo[];
+}
 @Component
 export default class WorldHome extends Vue {
-	created() { document.title = "Areund the World"; }
-
-	countriesWithCurrentLetter = 10;
-	get currentLetter() { return CountryLetters[CountryLetters.length - 1].letter; }
-	get letterCountriesDown() { return CountryLetters[CountryLetters.length - 1].info.length; }
-	get letterCountriesPercent() { return 100 * CountryLetters[CountryLetters.length - 1].info.length / this.countriesWithCurrentLetter; }
-	
-	get countriesDown() { return Object.keys(Data).length; }
-	get countryPercent() { return 100 * this.countriesDown / 206; }
-
-	get recentFoods() { 
-		const res = [];
-		for(let i = FoodList.length - 1; i >= (FoodList.length - 3); i--) {
-			res.push(FoodList[i]);
-		}
-		return res;
+	results:HomepageResponse|null = null;
+	loading = false;
+	isError = false;
+	created() {
+		document.title = "Areund the World";
+		bee.get<HomepageResponse>(this, "Homepage").then((r:HomepageResponse) => { this.results = r; }).catch(() => { this.isError = true; });
 	}
-	get randomSongs() {
-		const res = [], songs = [...SongList];
-		for(let i = 0; i < 19; i++) {
-			res.push(...songs.splice(Math.floor(Math.random()*songs.length), 1));
-		}
-		return res;
-	}
+	get letterCountriesPercent() { return this.results ? (100 * this.results.countriesDownWithCurrentLetter / this.results.countriesWithCurrentLetter) : 50; }
+	get countryPercent() { return this.results ? (100 * this.results.countriesDown / this.results.totalCountries) : 50; }
 }
 </script>
