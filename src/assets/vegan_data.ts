@@ -73,6 +73,12 @@ const Food:{[key:string]:Product[]} = {
     ],
     "poultry": [
         {
+            brand: "Like Meat", item: "Like Nuggets", date: "2021-03-08", url: "https://likemeat.com/us/products/like-nuggets/", 
+            desc: "Completely serviceable fake nuggets, but there's nothing they do that any other nugget I've tried hasn't done leagues better.", 
+            pros: "Edible.", 
+            cons: "Only worth buying if you're really determined to be vegetarian, really determined to eat a fake nugget, and somehow these are your only option.",
+            unitPrice: "0.86", rating: 5, restrictions: ["soy", "corn"]
+        }, {
             brand: "Simulate", item: "NUGGS 2.0", date: "2021-01-12", url: "https://eatnuggs.com/releases", 
             desc: "Obnoxiously hip and try-hard marketing aside, these are perfectly serviceable vegan chicken nuggets.", 
             pros: "Breading is on point. Inside texture is pretty accurate.", 
