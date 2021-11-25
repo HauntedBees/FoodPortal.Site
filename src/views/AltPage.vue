@@ -11,7 +11,7 @@
                 </div>
             </template>
         </SideTopPanel>
-		<v-col cols="12" md="10">
+		<v-col cols="12" md="9" xl="10">
 			<router-view :key="$route.fullPath" />
 		</v-col>
 	</v-row>

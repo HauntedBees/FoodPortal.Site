@@ -14,11 +14,12 @@
 			<v-card-subtitle>
                 <div v-if="spice.synonyms.length" class="comma-list"><strong>AKA: </strong> <span v-for="s in spice.synonyms" :key="s">{{s}}</span></div>
 				<p class="my-1" v-html="spice.description"></p>
-                <div class="comma-list" v-if="spice.recipes.length">
+                <div class="comma-list">
                     <strong>Recipes: </strong>
                     <span v-for="r in spice.recipes" :key="r.name">
                         <ax :href="r.url">{{r.name}}</ax>
                     </span>
+                    <span v-if="!spice.recipes.length">None Yet</span>
                 </div>
                 <v-row>
                     <v-col cols="12" md="6" class="pb-0">

@@ -63,7 +63,7 @@
 				</v-row>
 			</template>
 		</SideTopPanel>
-		<v-col cols="12" md="10" v-if="CountryLetters.length">
+		<v-col cols="12" md="9" xl="10" v-if="CountryLetters.length">
 			<WorldFilter v-if="dishfilters.length > 0 || dietfilters.length > 0" :dishfilters="dishfilters" :dietfilters="dietfilters" />
 			<keep-alive>
 				<router-view :key="$route.fullPath" v-if="dishfilters.length === 0 && dietfilters.length === 0" />

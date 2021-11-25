@@ -1,5 +1,5 @@
 <template>
-<v-col cols="12" md="2" class="pt-6">
+<v-col cols="12" md="3" xl="2" class="pt-6">
     <slot name="top" />
     <v-expansion-panels :disabled="!mobile && !$slots.headerb" v-model="open">
         <v-expansion-panel :class="'rounded-tl-xl ' + ($slots.headerb ? 'rounded-b-0' : 'rounded-br-xl')">
