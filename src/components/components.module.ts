@@ -3,6 +3,7 @@ import { ExternalLink, Emoji, SpanTooltip, ClassDirective } from "bee-vue-gang";
 import SideTopPanel from "src/components/SideTopPanel.vue";
 import ErrorMessage from "src/components/ErrorMessage.vue";
 import Loader from "src/components/Loader.vue";
+import CommaList from "src/components/CommaList.vue";
 
 import { SvgMap } from "vue-svg-map";
 import WorldMap from "src/components/WorldMap.vue";
@@ -19,6 +20,7 @@ Vue.component("spantt", SpanTooltip);
 Vue.component("SideTopPanel", SideTopPanel);
 Vue.component("ErrorMessage", ErrorMessage);
 Vue.component("Loader", Loader);
+Vue.component("CommaList", CommaList);
 
 Vue.component("WorldMap", WorldMap);
 Vue.component("SvgMap", SvgMap);
