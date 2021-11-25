@@ -15,8 +15,10 @@
 		<p>
 			If you have any suggestions, corrections, additions, or comments, you can contact me at <a href="mailto:fench@hauntedbees.com">fench@hauntedbees.com</a> 
 			or on Twitter at <ax href="https://twitter.com/hauntedbees">@hauntedbees</ax>. And for the privacy policy and all that cool nerd stuff, 
-			<router-link to="/vegan/abeut">click here</router-link>!</p>
+			<router-link to="/spice/abeut">click here</router-link>!</p>
 	</v-sheet>
+    <Loader v-if="loading"/>
+    <ErrorMessage v-if="isError"/>
 	<v-row class="px-3">
 		<v-col cols="12">
 			<h2 class="mb-1">Random Seasonings</h2>
@@ -27,16 +29,18 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import Spices, { Spice } from 'src/assets/spice_data';
+import { Seasoning } from 'src/assets/spice_data';
+import { bee } from '../../util/webmethod';
 @Component
 export default class SpiceHome extends Vue {
-	spices:Spice[] = [];
+    loading = true;
+	isError = false;
+	spices:Seasoning[] = [];
 	created() {
+        bee.get<Seasoning[]>(this, "RandomSeasonings").then(r => {
+			this.spices = r;
+		}).catch(() => { this.isError = true; });
 		document.title = "Spiceapedia";
-		const spices = [...Spices];
-		for(let i = 0; i < 5; i++) {
-			this.spices.push(spices.splice(Math.floor(Math.random() * spices.length), 1)[0]);
-		}
 	}
 }
 </script>

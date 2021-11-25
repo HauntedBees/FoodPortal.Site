@@ -8,8 +8,9 @@ p.indent { text-indent: 1em }
 .comma-list span:not(:last-child)::after {
     content: ", ";
 }
-a {
+a, .link {
     color: #B2DDFF!important;
+    cursor: pointer;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
@@ -19,6 +20,7 @@ a {
     }
 }
 a.no-line:hover { text-decoration: none }
+.router-link-active { font-weight: bold }
 .active a {
     font-weight: bold;
     color: #FFFFFF!important;

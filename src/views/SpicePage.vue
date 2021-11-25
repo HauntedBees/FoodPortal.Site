@@ -1,22 +1,24 @@
 <template>
 <v-container>
 	<v-row>
-        <SideTopPanel>
+        <Loader v-if="loading"/>
+        <ErrorMessage v-if="isError"/>
+        <SideTopPanel v-if="!loading">
             <template #header>Herbs</template>
             <template #content>
-                <div v-class.active="activeRoute === s.id" class="px-5 pb-1" v-for="s in herbs" :key="s.id">
+                <div class="px-5 pb-1" v-for="s in herbs" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
             </template>
             <template #headerb>Spices</template>
             <template #contentb>
-                <div v-class.active="activeRoute === s.id" class="px-5 pb-1" v-for="s in spices" :key="s.id">
+                <div class="px-5 pb-1" v-for="s in spices" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
             </template>
             <template #headerc>Blends</template>
             <template #contentc>
-                <div v-class.active="activeRoute === s.id" class="px-5 pb-1" v-for="s in blends" :key="s.id">
+                <div class="px-5 pb-1" v-for="s in blends" :key="s.id">
                     <router-link :to="'/spice/' + s.id">{{s.name}}</router-link>
                 </div>
             </template>
@@ -28,31 +30,27 @@
 </v-container>
 </template>
 <script lang="ts">
-import { FoodCategories } from 'src/assets/vegan_data';
 import { Vue, Component } from 'vue-property-decorator';
-import Spices, { Spice } from 'src/assets/spice_data';
+import { bee } from '../util/webmethod';
+interface ListSeasoning { name:string; type:number; id?:string }
 @Component
 export default class SpicePage extends Vue {
-    FoodCategories = FoodCategories;
-	herbs:Spice[] = [];
-	spices:Spice[] = [];
-	blends:Spice[] = [];
-    get activeRoute() {
-        const params = this.$router.currentRoute.params;
-        if(!params) { return ""; }
-        return params.id;
-    }
+    loading = true;
+	isError = false;
+	herbs:ListSeasoning[] = [];
+	spices:ListSeasoning[] = [];
+	blends:ListSeasoning[] = [];
     created() {
-		const sortedSpices = [...Spices];
-		sortedSpices.sort((a, b) => a.name.localeCompare(b.name));
-		for(let i = 0; i < sortedSpices.length; i++) {
-			const s = sortedSpices[i];
-			switch(s.type) {
-				case 0: this.herbs.push(s); break;
-				case 1: this.spices.push(s); break;
-				case 2: this.blends.push(s); break;
-			}
-		}
+        bee.get<ListSeasoning[]>(this, "FullSeasoningList").then(r => {
+            r.forEach(ls => {
+                ls.id = encodeURIComponent(ls.name);
+                switch(ls.type) {
+                    case 0: this.herbs.push(ls); break;
+                    case 1: this.spices.push(ls); break;
+                    case 2: this.blends.push(ls); break;
+                }
+            });
+		}).catch(() => { this.isError = true; });
     }
 }
 </script>

@@ -65,7 +65,7 @@ export default class WorldCountry extends Vue {
     country?:CountryDetails|null = null;
 	created() {
 		const id = this.$route.params.id;
-		bee.get<CountryDetails>(this, "Country", [id]).then((r:CountryDetails) => {
+		bee.get<CountryDetails>(this, "Country", [id]).then(r => {
 			document.title = `${r.name} - Areund the World`;
 			this.countryCode = id;
 			this.country = r;

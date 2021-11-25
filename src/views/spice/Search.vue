@@ -1,5 +1,7 @@
 <template>
 <v-container>
+    <Loader v-if="loading"/>
+    <ErrorMessage v-if="isError"/>
 	<v-row>
         <v-col cols="12">
             <h4 class="pa-2 pl-4">{{title}}</h4>
@@ -64,6 +66,8 @@ import { Vue, Component } from 'vue-property-decorator';
 import Spices, { Foods, DishTypes, Flavors, Spice } from 'src/assets/spice_data';
 @Component
 export default class SpiceSearch extends Vue {
+    loading = true;
+	isError = false;
     query = "";
     title = "";
     showOrigins = false;
