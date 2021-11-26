@@ -13,7 +13,9 @@ export interface Seasoning {
     dishes: string[];
     flavors: string[];
     foods: string[];
-    relatedSpices: string[];
+    pairsWith: Seasoning[];
+    relatedSpices: Seasoning[];
+    components: Seasoning[];
     recipes: Recipe[];
     imagedesc: string;
     imagename: string;

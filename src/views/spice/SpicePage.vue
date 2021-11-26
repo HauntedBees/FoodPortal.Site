@@ -4,6 +4,11 @@
 	<ErrorMessage v-if="isError"/>
 	<v-sheet rounded class="pa-5" v-if="spice && !loading">
 		<SpiceCard :spice="spice" :skipRelations="true" />
+		<v-row v-if="spice.components.length">
+			<h3 class="px-5 pb-2" v-if="spice.type === 'blend'">Common Components</h3>
+			<h3 class="px-5 pb-2" v-else>Common Component of</h3>
+			<SpiceCard v-for="s in spice.components" :key="s.name" :spice="s" />
+		</v-row>
 		<v-row v-if="spice.relatedSpices.length">
 			<h3 class="px-5 pb-2">Related Seasonings</h3>
 			<SpiceCard v-for="s in spice.relatedSpices" :key="s.name" :spice="s" />
