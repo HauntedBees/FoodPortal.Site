@@ -48,6 +48,9 @@
                 <ax href="https://github.com/VictorCazanave/vue-svg-map">vue-svg-map</ax> is licensed under the <ax href="https://github.com/VictorCazanave/vue-svg-map/blob/master/LICENSE">MIT License.</ax>
             </li>
             <li>
+                <ax href="https://simplemaps.com/resources/svg-world">Robinson SVG Map</ax> is licensed under the <ax href="https://simplemaps.com/resources/svg-license">MIT License.</ax>
+            </li>
+            <li>
                 <ax href="https://vuetifyjs.com/en/">Vuetify</ax> is licensed under the <ax href="https://github.com/vuetifyjs/vuetify/blob/master/LICENSE.md">MIT License.</ax>
             </li>
         </ul>
