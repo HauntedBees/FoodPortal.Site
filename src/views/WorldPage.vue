@@ -73,7 +73,7 @@
 </v-container>
 </template>
 <script lang="ts">
-import { FilterInfo, CountryLetterInfo } from 'src/assets/world_data';
+import { FilterInfo, CountryLetterInfo } from 'src/models/world';
 import { bee } from 'src/util/webmethod';
 import { Vue, Component } from 'vue-property-decorator';
 import WorldFilter from "src/views/world/Filter.vue";

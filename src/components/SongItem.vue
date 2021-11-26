@@ -9,7 +9,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { SongInfo } from 'src/assets/world_data';
+import { SongInfo } from 'src/models/world';
 @Component
 export default class SongItem extends Vue {
     @Prop() song!:SongInfo;

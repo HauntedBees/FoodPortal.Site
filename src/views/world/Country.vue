@@ -54,7 +54,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { CountryDetails } from 'src/assets/world_data';
+import { CountryDetails } from 'src/models/world';
 import dayjs from 'dayjs';
 import { bee } from '../../util/webmethod';
 @Component

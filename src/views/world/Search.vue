@@ -16,7 +16,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { FoodInfo } from 'src/assets/world_data';
+import { FoodInfo } from 'src/models/world';
 import { bee } from 'src/util/webmethod';
 @Component
 export default class WorldSearch extends Vue {

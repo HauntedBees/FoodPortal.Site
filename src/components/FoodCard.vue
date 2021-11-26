@@ -36,7 +36,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { FoodInfo } from 'src/assets/world_data';
+import { FoodInfo } from 'src/models/world';
 @Component
 export default class FoodCard extends Vue {
     @Prop() food!:FoodInfo;

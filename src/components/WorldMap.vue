@@ -15,7 +15,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import svgPanZoom from 'svg-pan-zoom';
 import World from 'src/assets/robinson';
 import Hammer from 'hammerjs';
-import { CountryLetterInfo } from 'src/assets/world_data';
+import { CountryLetterInfo } from 'src/models/world';
 interface Point { x:number; y:number }
 interface HammerEvent { type: string; deltaX:number; deltaY:number; scale:number; center:Point }
 interface SVGEvent extends Event { target:SVGElement }

@@ -18,7 +18,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { FoodInfo, SongInfo } from 'src/assets/world_data';
+import { FoodInfo, SongInfo } from 'src/models/world';
 import { bee } from 'src/util/webmethod';
 interface FavResponse {
 	food:FoodInfo[];

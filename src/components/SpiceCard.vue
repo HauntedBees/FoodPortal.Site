@@ -73,7 +73,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { Seasoning } from 'src/assets/spice_data';
+import { Seasoning } from 'src/models/spice';
 @Component
 export default class FoodCard extends Vue {
     @Prop() spice!:Seasoning;

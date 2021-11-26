@@ -14,7 +14,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
-import { FilterInfo, FoodInfo } from 'src/assets/world_data';
+import { FilterInfo, FoodInfo } from 'src/models/world';
 import { bee } from 'src/util/webmethod';
 @Component
 export default class WorldFilter extends Vue {

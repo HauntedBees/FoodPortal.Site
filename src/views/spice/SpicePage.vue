@@ -29,7 +29,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { Seasoning } from 'src/assets/spice_data';
+import { Seasoning } from 'src/models/spice';
 import { bee } from '../../util/webmethod';
 @Component
 export default class SpicePage extends Vue {
