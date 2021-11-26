@@ -33,7 +33,7 @@
                         <div v-if="!skipRelations && spice.relatedSpices.length" class="comma-list">
                             <strong>Related: </strong> 
                             <span v-for="i in spice.relatedSpices" :key="i">
-                                <router-link :to="'/spice/' + i">{{i}}</router-link>
+                                <router-link :to="'/spice/' + i.name">{{i.name}}</router-link>
                             </span>
                         </div>
                     </v-col>
@@ -53,7 +53,7 @@
                         <div v-if="!skipRelations && spice.pairsWith.length" class="comma-list">
                             <strong>Pairs With: </strong> 
                             <span v-for="i in spice.pairsWith" :key="i">
-                                <router-link :to="'/spice/' + i">{{i}}</router-link>
+                                <router-link :to="'/spice/' + i.name">{{i.name}}</router-link>
                             </span>
                         </div>
                     </v-col>
