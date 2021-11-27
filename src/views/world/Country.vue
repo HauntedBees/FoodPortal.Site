@@ -12,9 +12,9 @@
 	</v-sheet>
 	<v-sheet rounded class="pa-5" v-if="!loading && country">
         <h1 class="mb-1"><span :class="'flag-icon flag-icon-' + countryCode.toLowerCase()" /> {{country.name}}
-			<ax v-if="country.food.some(f => f.databee)" class="ml-3" :href="DataBeeURL">
+			<axg v-if="country.food.some(f => f.databee)" class="ml-3" :href="DataBeeURL">
 				<spantt tooltip="View this country's recipes in DataBee format"><Emoji emoji="1F41D" size="16"/></spantt>
-			</ax>
+			</axg>
 		</h1>
 		<p class="no-big-em" v-html="country.description"></p>
 		<v-row>
@@ -42,11 +42,11 @@
 	</v-sheet>
 	<v-row class="px-3" v-if="country">
 		<v-col cols="12" md="8">
-			<h2><ax :href="country.foodURL">Food</ax></h2>
+			<h2><axg :href="country.foodURL">Food</axg></h2>
 			<FoodCard v-for="food in country.food" :key="food.name" :food="food" />
 		</v-col>
 		<v-col cols="12" md="4">
-			<h2><ax :href="country.musicURL">Music</ax></h2>
+			<h2><axg :href="country.musicURL">Music</axg></h2>
 			<ul><SongItem v-for="song in country.music" :key="song.name" :song="song" /></ul>
 		</v-col>
 	</v-row>

@@ -4,6 +4,7 @@ import SideTopPanel from "src/components/SideTopPanel.vue";
 import ErrorMessage from "src/components/ErrorMessage.vue";
 import Loader from "src/components/Loader.vue";
 import CommaList from "src/components/CommaList.vue";
+import GoodExternalLink from "src/components/GoodExternalLink.vue";
 
 import { SvgMap } from "vue-svg-map";
 import WorldMap from "src/components/WorldMap.vue";
@@ -15,6 +16,7 @@ import SpiceCard from "src/components/SpiceCard.vue";
 
 Vue.directive("class", ClassDirective);
 Vue.component("ax", ExternalLink);
+Vue.component("axg", GoodExternalLink);
 Vue.component("Emoji", Emoji);
 Vue.component("spantt", SpanTooltip);
 Vue.component("SideTopPanel", SideTopPanel);

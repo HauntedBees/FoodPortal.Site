@@ -9,13 +9,13 @@
 				<spantt :tooltip="food.countryName"><span :class="'mr-1 flag-icon flag-icon-' + food.countryCode.toLowerCase()" /></spantt>
 				<spantt v-if="food.favorite" tooltip="Personal Favorite"><Emoji emoji="1F31F" size="24" class="mr-1" /></spantt>
 				<spantt :tooltip="food.dish"><Emoji :emoji="food.dishEmoji" size="24" class="mr-2" /></spantt>
-				<ax :href="food.url">
+				<axg :href="food.url">
 					{{food.name}}
 					<Emoji emoji="1F517" size="16" />
-				</ax>
-				<ax v-if="food.databee" class="ml-3" :href="DataBeeURL">
+				</axg>
+				<axg v-if="food.databee" class="ml-3" :href="DataBeeURL">
 					<spantt tooltip="View the recipe in DataBee format"><Emoji emoji="1F41D" size="16"/></spantt>
-				</ax> 
+				</axg> 
 				<v-spacer/>
 				<span class="card--date">{{$formatdate(food.date)}}</span>
 			</v-card-title>

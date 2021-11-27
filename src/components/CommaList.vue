@@ -2,7 +2,7 @@
 <div class="comma-list">
     <strong>{{label}}: </strong>
     <span v-for="r in VisibleListItems" :key="r[nameVal]">
-		<ax v-if="r[urlVal]" :href="r[urlVal]">{{r[nameVal]}}</ax>
+		<axg v-if="r[urlVal]" :href="r[urlVal]">{{r[nameVal]}}</axg>
 		<span v-else>{{r[nameVal]}}</span>
     </span>
 	<span class="link dotted-underline" v-if="!expanded && list.length > displayLimit" @click="expanded = true">Show More</span>

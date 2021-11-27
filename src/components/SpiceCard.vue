@@ -60,11 +60,11 @@
                 </v-row>
 			</v-card-subtitle>
             <v-card-subtitle class="float-right mb-2 py-0 text-caption">
-                "<ax :href="spice.imageurl">{{spice.imagename}}</ax>"
+                "<axg :href="spice.imageurl">{{spice.imagename}}</axg>"
                  by 
-                <ax :href="spice.authorurl">{{spice.imageauthor}}</ax>
+                <axg :href="spice.authorurl">{{spice.imageauthor}}</axg>
                   is licensed under the 
-                <ax :href="spice.licenseurl">{{spice.license}}</ax>
+                <axg :href="spice.licenseurl">{{spice.license}}</axg>
                  License.
             </v-card-subtitle>
 		</v-col>
