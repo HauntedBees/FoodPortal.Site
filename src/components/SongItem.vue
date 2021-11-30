@@ -1,6 +1,8 @@
 <template>
 <li>
-	<span v-if="showFlag" :class="'mr-1 flag-icon flag-icon-' + song.countryCode.toLowerCase()" />
+	<spantt v-if="showFlag" :tooltip="song.countryName">
+		<span :class="'mr-1 flag-icon flag-icon-' + song.countryCode.toLowerCase()" />
+	</spantt>
 	<spantt v-if="song.translation" :tooltip="song.translation">
 		<ax class="dotted-underline" :href="song.url">{{song.name}} <Emoji v-if="song.favorite" emoji="1F31F" size="16" /></ax>
 	</spantt>

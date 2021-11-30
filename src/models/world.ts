@@ -11,6 +11,7 @@ export interface CountryLetterInfo {
   }
   export interface SongInfo {
 	countryCode?:string;
+	countryName?:string;
 	name:string;
 	url:string;
 	favorite?:boolean;
