@@ -107,8 +107,9 @@ a.no-line:hover { text-decoration: none }
 }
 
 // #region Bonus Flags
-.flag-icon-ge-ab { background-image: url("../assets/abkhazia.svg"); }
-.flag-icon-am-ar { background-image: url("../assets/artsakh.svg"); }
+.flag-icon-ge-ab { background-image: url("../assets/abkhazia.svg") }
+.flag-icon-am-ar { background-image: url("../assets/artsakh.svg") }
+.flag-icon-ad { background-image: url("../assets/andorra.svg")!important } // I have no idea why Andorra wasn't working before
 // #endregion
 // #region "World Map"
 $mapBGColor: #56A1C4;
