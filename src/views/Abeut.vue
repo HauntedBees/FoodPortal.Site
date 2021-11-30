@@ -84,9 +84,16 @@ export default class AbeutPage extends Vue {
                     if that happens, let me know! I will regularly try to update those when appropriate, and I will try to ensure that all external links are still valid. If
                     you find a dead link to a recipe or song, let me know so I can replace it with an archived version or a different link.`,
                     
-                    `Some of the dishes hosted here have recipes in the <a href='https://github.com/HauntedBees/DataBee'>DataBee Recipe Format</a>. DataBee is an app also
+                    `Some of the dishes hosted here have recipes in the <a href='https://github.com/HauntedBees/DataBee' target='_blank' rel='external nofollow noopener noreferrer'>DataBee Recipe Format</a>. DataBee is an app also
                     produced by Haunted Bees. DataBee Recipes can be found by clicking on the bee icon next to recipes, and are adapted from the linked recipes technically
-                    without permission. I'll worry about the ethics or legality of that once I get a Cease and Desist.`    
+                    without permission. I'll worry about the ethics or legality of that once I get a Cease and Desist.`,
+
+                    `If you'd like a copy of this site's data, a JSON export is updated regularly on <a href='https://github.com/HauntedBees/BeeAPI/blob/main/Foodportal/world_export.json' target='_blank' rel='external nofollow noopener noreferrer'>GitHub</a>.`
+                ];
+                break;
+            case "/spice":
+                this.addtlLegalText = [
+                    `If you'd like a copy of this site's data, a JSON export is updated regularly on <a href='https://github.com/HauntedBees/BeeAPI/blob/main/Foodportal/spice_export.json' target='_blank' rel='external nofollow noopener noreferrer'>GitHub</a>.`
                 ];
                 break;
             case "/vegan":
