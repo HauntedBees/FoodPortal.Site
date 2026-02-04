@@ -51,20 +51,18 @@ export type IndividualResponse = {
 	similarDishes: Food[];
 };
 
-export type DietData = {
+export type NamedEmoji = {
 	id: number;
 	name: string;
 	emoji: string;
-};
-export type DishData = DietData & {
 	color: string;
 };
 
 export type MetadataResponse = {
 	letters: string[];
 	countries: MetadataCountry[];
-	dishes: DishData[];
-	diets: DietData[];
+	dishes: NamedEmoji[];
+	diets: NamedEmoji[];
 };
 
 export type BaseCountry = {
@@ -77,7 +75,7 @@ type MetadataCountry = BaseCountry & {
 	focusArea?: string;
 };
 
-export type CountryResponse = BaseCountry & {
+export type CountryResponse = { empty: true } | BaseCountry & {
 	description: string;
 	foodURL: string;
 	musicURL: string;
@@ -94,6 +92,15 @@ export type SearchRequest = {
 	dietIncludes: number[];
 	dietExcludes: number[];
 };
+
+export function SearchRequestToSiteQueryString(s: SearchRequest): string {
+	const safeRequest: Record<string, string> = {};
+	if (s.query) { safeRequest.query = encodeURIComponent(s.query); }
+	if (s.dishTypes && s.dishTypes.length) { safeRequest.dishTypes = s.dishTypes.join(","); }
+	if (s.dietIncludes && s.dietIncludes.length) { safeRequest.dietIncludes = s.dietIncludes.join(","); }
+	if (s.dietExcludes && s.dietExcludes.length) { safeRequest.dietExcludes = s.dietExcludes.join(","); }
+	return (new URLSearchParams(safeRequest)).toString();
+}
 /*
 	filtering logic should be:
 		if dishTypes has any elements, "f.dish IN ({elements})"

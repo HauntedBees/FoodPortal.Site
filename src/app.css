@@ -40,9 +40,9 @@
 }
 
 .dark {
-  --background: oklch(0.147 0.004 49.25);
+  --background: oklch(14.518% 0.00825 325.899);
   --foreground: oklch(0.985 0.001 106.423);
-  --card: oklch(0.216 0.006 56.043);
+  --card: oklch(21.273% 0.01237 325.91);
   --card-foreground: oklch(0.985 0.001 106.423);
   --popover: oklch(0.216 0.006 56.043);
   --popover-foreground: oklch(0.985 0.001 106.423);
@@ -52,7 +52,7 @@
   --secondary-foreground: oklch(0.985 0.001 106.423);
   --muted: oklch(0.268 0.007 34.298);
   --muted-foreground: oklch(0.709 0.01 56.259);
-  --accent: oklch(0.268 0.007 34.298);
+  --accent: oklch(27.914% 0.00892 107.026);
   --accent-foreground: oklch(0.985 0.001 106.423);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -115,6 +115,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -124,26 +125,30 @@ img.emoji.xs {
   height: 16px;
   width: 16px;
 }
+
 img.emoji.sm {
   height: 24px;
   width: 24px;
 }
+
 img.emoji.md {
   height: 32px;
   width: 32px;
 }
+
 img.emoji.lg {
   height: 48px;
   width: 48px;
 }
 
-.map > svg {
+.map>svg {
   width: 100%;
   height: auto;
   background: #56a1c4;
 }
+
 @media (min-width: 768px) {
-  .map > svg {
+  .map>svg {
     border-radius: 16px;
   }
 }
@@ -151,22 +156,27 @@ img.emoji.lg {
 path {
   fill: #2f380f !important;
 }
+
 path:hover {
-  fill: rgb(30.1197183099,35.8873239437,9.6126760563) !important;
+  fill: rgb(30.1197183099, 35.8873239437, 9.6126760563) !important;
 }
+
 path.completed {
   fill: #2fff0f !important;
 }
+
 path.completed:hover {
-  fill: rgb(29.2,219,0) !important;
+  fill: rgb(29.2, 219, 0) !important;
 }
+
 path.active {
   fill: #ffff4f !important;
 }
+
 path.active:hover {
   fill: #ffff1c !important;
 }
 
-.food-description > a {
+.food-description>a {
   text-decoration: underline;
 }
