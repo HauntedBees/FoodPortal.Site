@@ -14,7 +14,9 @@
             Welcome to <em>Areund the World</em>, my journey cooking food and
             listening to music from around the world, with the eventual goal of
             doing so for every country*! Want to know more? Click
-            <a href="/world/about" class="underline" use:route>here</a>!
+            <a href="/world/about" class="underline" use:route>here</a>! Want to
+            just see my personal favorites? Then click
+            <a href="/world/favorites" class="underline" use:route>here</a>!
             Otherwise, scroll down, click on the map, or pick a country to
             explore the world!
         </p>

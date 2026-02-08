@@ -24,6 +24,7 @@ export type Song = FromCountryItem & {
 };
 
 export type Food = FromCountryItem & {
+	urlkey: string;
 	dish: string;
 	dishEmoji: string;
 	date: string;

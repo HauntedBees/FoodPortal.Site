@@ -124,21 +124,25 @@
 img.emoji.xs {
   height: 16px;
   width: 16px;
+  min-width: 16px;
 }
 
 img.emoji.sm {
   height: 24px;
   width: 24px;
+  min-width: 24px;
 }
 
 img.emoji.md {
   height: 32px;
   width: 32px;
+  min-width: 32px;
 }
 
 img.emoji.lg {
   height: 48px;
   width: 48px;
+  min-width: 48px;
 }
 
 .map>svg {

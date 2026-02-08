@@ -6,6 +6,7 @@
 	import SkeletonEntry from "$lib/components/bee/skeletons/skeleton-entry.svelte";
 	import { route } from "@mateothegreat/svelte5-router";
 	import { buttonVariants } from "$lib/components/ui/button";
+	import Error from "$lib/components/bee/error.svelte";
 	const buttonStyles = buttonVariants({ variant: "outline" });
 	let { route: root }: { route: { result: any } } = $props();
 	let page = $derived(parseInt(root?.result?.path?.params?.page) || 1);
@@ -47,8 +48,8 @@
 					{/if}
 				</div>
 			</div>
-		{:catch error}
-			<p>oh no: {error}</p>
+		{:catch}
+			<Error />
 		{/await}
 	</div>
 </div>

@@ -8,9 +8,9 @@
 	import { goto, route } from "@mateothegreat/svelte5-router";
 	import worldmap from "../../../assets/robinson.svg?raw";
 	import { onDestroy, onMount } from "svelte";
-	import { cn } from "$lib/utils";
 	import svgPanZoom from "svg-pan-zoom";
 	import { getCountry } from "$lib/helpers.svelte";
+	import Hammer from "hammerjs";
 	let {
 		mobileOnly,
 		countryCode,
@@ -75,12 +75,82 @@
 			});
 		});
 		const map = mapContainer?.querySelector("svg");
+		let hammer: any;
 		if (map) {
 			mapInstance = svgPanZoom(map, {
 				zoomEnabled: true,
+				dblClickZoomEnabled: false,
+				preventMouseEventsDefault: false,
 				panEnabled: true,
 				fit: true,
 				center: true,
+				customEventsHandler: {
+					haltEventListeners: [
+						"touchstart",
+						"touchend",
+						"touchmove",
+						"touchleave",
+						"touchcancel",
+					],
+					init: function (options) {
+						const instance = options.instance;
+						let initialScale = 1;
+						let pannedX = 0,
+							pannedY = 0;
+
+						hammer = new Hammer(options.svgElement, {
+							inputClass: Hammer.PointerEventInput,
+						});
+
+						// Handle pan
+						hammer.on("panstart panmove", function (ev: any) {
+							// On pan start reset panned variables
+							if (ev.type === "panstart") {
+								pannedX = 0;
+								pannedY = 0;
+							}
+
+							// Pan only the difference
+							instance.panBy({
+								x: ev.deltaX - pannedX,
+								y: ev.deltaY - pannedY,
+							});
+							pannedX = ev.deltaX;
+							pannedY = ev.deltaY;
+						});
+						// Enable pinch
+						hammer.get("pinch").set({ enable: true });
+
+						// Handle pinch
+						hammer.on("pinchstart pinchmove", function (ev: any) {
+							// On pinch start remember initial zoom
+							if (ev.type === "pinchstart") {
+								initialScale = instance.getZoom();
+								instance.zoomAtPoint(initialScale * ev.scale, {
+									x: ev.center.x,
+									y: ev.center.y,
+								});
+							}
+
+							instance.zoomAtPoint(initialScale * ev.scale, {
+								x: ev.center.x,
+								y: ev.center.y,
+							});
+						});
+
+						// Prevent moving the page on some devices when panning over SVG
+						options.svgElement.addEventListener(
+							"touchmove",
+							function (e) {
+								e.preventDefault();
+							},
+						);
+					},
+
+					destroy: function () {
+						hammer.destroy();
+					},
+				},
 			});
 		}
 	});

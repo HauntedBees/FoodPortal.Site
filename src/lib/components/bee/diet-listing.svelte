@@ -1,6 +1,6 @@
 <script lang="ts">
     import { type Food } from "$lib/types";
-    import * as Tooltip from "$lib/components/ui/tooltip/index.js";
+    import * as Popover from "$lib/components/ui/popover/index.js";
     import Emoji from "./emoji.svelte";
     import Badge from "../ui/badge/badge.svelte";
     import { cn } from "$lib/utils";
@@ -14,8 +14,8 @@
 </script>
 
 {#each food.diet as d}
-    <Tooltip.Root>
-        <Tooltip.Trigger>
+    <Popover.Root>
+        <Popover.Trigger openOnHover>
             <Badge
                 class={cn(d.optional && "opacity-50")}
                 style="background-color: #{colors?.[d.name] ?? '#CCCCCC'}"
@@ -23,9 +23,9 @@
                 <Emoji size="xs" codepoint={d.emoji} />
                 <span class="ml-2">{d.name}</span>
             </Badge>
-        </Tooltip.Trigger>
-        <Tooltip.Content>
+        </Popover.Trigger>
+        <Popover.Content>
             <p>{d.description}</p>
-        </Tooltip.Content>
-    </Tooltip.Root>
+        </Popover.Content>
+    </Popover.Root>
 {/each}

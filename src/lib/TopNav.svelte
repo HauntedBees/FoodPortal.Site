@@ -28,6 +28,7 @@
 		locationChanged();
 		searchBox.addEventListener("focus", () => {
 			isSearchPanelOpen = true;
+			window.scrollTo(0, 0);
 		});
 	});
 	const onClick = (e: PointerEvent) => {
@@ -116,7 +117,7 @@
 <svelte:document onclick={(e) => onClick(e as any)} />
 <nav
 	id="top-nav"
-	class="w-full bg-stone-900 px-4 py-2 md:flex items-center space-x-4 z-50"
+	class="w-full bg-stone-900 px-4 py-2 md:flex items-center space-x-4 z-50 sticky top-0"
 >
 	<a
 		href="/world/"

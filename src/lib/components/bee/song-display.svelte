@@ -1,37 +1,31 @@
 <script lang="ts">
-	import * as Tooltip from "$lib/components/ui/tooltip/index.js";
-    import type { Song } from "$lib/types";
-    import Emoji from "./emoji.svelte";
-    import Flag from "./flag.svelte";
-	let { song, showFlag }: {
-		song: Song,
-		showFlag?: boolean
+	import * as Popover from "$lib/components/ui/popover/index.js";
+	import type { Song } from "$lib/types";
+	import SongDisplayInner from "./song-display-inner.svelte";
+	let {
+		song,
+		showFlag,
+	}: {
+		song: Song;
+		showFlag?: boolean;
 	} = $props();
 </script>
-<a
-	href={song.url}
-	target="_blank"
-	class="flex space-x-2 align-middle items-center"
-	>
-	{#if showFlag}
-		<Flag country={song} />
-	{/if}
+
+<li>
 	{#if song.translation}
-		<Tooltip.Root>
-			<Tooltip.Trigger class="text-left flex space-x-2">
-				<span class="underline decoration-dotted">{song.name}</span>
-				{#if song.favorite}
-				<Emoji size="sm">🌟</Emoji>
-				{/if}
-			</Tooltip.Trigger>
-			<Tooltip.Content>
+		<Popover.Root>
+			<Popover.Trigger class="w-full md:w-auto" openOnHover>
+				<SongDisplayInner
+					textClass="underline decoration-dotted"
+					{song}
+					{showFlag}
+				/>
+			</Popover.Trigger>
+			<Popover.Content>
 				<p>{song.translation}</p>
-			</Tooltip.Content>
-		</Tooltip.Root>
+			</Popover.Content>
+		</Popover.Root>
 	{:else}
-		<span>{song.name}</span>
-		{#if song.favorite}
-		<Emoji size="xs">🌟</Emoji>
-		{/if}
+		<SongDisplayInner {song} {showFlag} />
 	{/if}
-</a>
+</li>

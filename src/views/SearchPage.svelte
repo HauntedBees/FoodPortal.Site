@@ -5,6 +5,7 @@
     import Entry from "$lib/components/bee/entry.svelte";
     import SkeletonEntry from "$lib/components/bee/skeletons/skeleton-entry.svelte";
     import { goto } from "@mateothegreat/svelte5-router";
+    import Error from "$lib/components/bee/error.svelte";
 
     const ParamsFromURLSearchParams = (
         params: URLSearchParams,
@@ -68,8 +69,8 @@
                     <Entry {food} />
                 {/each}
             </div>
-        {:catch error}
-            <p>oh no: {error}</p>
+        {:catch}
+            <Error />
         {/await}
     </div>
 </div>

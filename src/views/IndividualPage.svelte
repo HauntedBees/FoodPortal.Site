@@ -3,6 +3,8 @@
 	import type { IndividualResponse } from "$lib/types";
 	import Entry from "$lib/components/bee/entry.svelte";
 	import SkeletonEntry from "$lib/components/bee/skeletons/skeleton-entry.svelte";
+	import NotFound from "$lib/components/bee/not-found.svelte";
+	import Error from "$lib/components/bee/error.svelte";
 	let { route }: { route: { result: any } } = $props();
 	let recipeKey: string = $derived(route?.result?.path?.params?.recipeKey);
 	let recipePromise = $derived(
@@ -32,19 +34,21 @@
 				<SkeletonEntry />
 			</div>
 		{:then recipeData}
-			<div class="space-y-4">
-				{#if recipeData.food}
+			{#if recipeData.food}
+				<div class="space-y-4">
 					<Entry food={recipeData.food} />
-				{/if}
-				{#if recipeData.similarDishes}
-					<p class="text-xl font-bold mb-2">Similar Dishes</p>
-					{#each recipeData.similarDishes as food}
-						<Entry {food} />
-					{/each}
-				{/if}
-			</div>
-		{:catch error}
-			<p>oh no: {error}</p>
+					{#if recipeData.similarDishes.length}
+						<p class="text-xl font-bold mb-2">Similar Dishes</p>
+						{#each recipeData.similarDishes as food}
+							<Entry {food} />
+						{/each}
+					{/if}
+				</div>
+			{:else}
+				<NotFound />
+			{/if}
+		{:catch}
+			<Error />
 		{/await}
 	</div>
 </div>

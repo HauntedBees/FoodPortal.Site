@@ -7,6 +7,7 @@
 	import SongDisplay from "$lib/components/bee/song-display.svelte";
 	import { route } from "@mateothegreat/svelte5-router";
 	import { buttonVariants } from "$lib/components/ui/button";
+	import Error from "$lib/components/bee/error.svelte";
 	const buttonStyles = buttonVariants({ variant: "outline" });
 	const homeDataPromise = $state(bee.getShared<HomePageResponse>("homepage"));
 </script>
@@ -37,7 +38,9 @@
 				class="block md:hidden col-span-1 w-full items-center justify-center mb-3"
 			>
 				<p class="text-xl font-bold mb-2">Random Song</p>
-				<SongDisplay song={homeData.randomSongs[0]} showFlag />
+				<ul>
+					<SongDisplay song={homeData.randomSongs[0]} showFlag />
+				</ul>
 			</div>
 			<div class="col-span-1 md:col-span-3 space-y-4">
 				<p class="text-xl font-bold mb-2">Latest Entries</p>
@@ -53,8 +56,10 @@
 					{/each}
 				</ul>
 			</div>
-		{:catch error}
-			<p>oh no: {error}</p>
+		{:catch}
+			<div class="col-span-1 md:col-span-4">
+				<Error />
+			</div>
 		{/await}
 	</div>
 	<div class="w-full flex justify-center items-center gap-2">

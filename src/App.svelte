@@ -1,6 +1,5 @@
 <script lang="ts">
 	import "./app.css";
-	import TooltipProvider from "$lib/components/ui/tooltip/tooltip-provider.svelte";
 	import TopNav from "./lib/TopNav.svelte";
 	import {
 		Router,
@@ -28,6 +27,11 @@
 		{
 			path: "about",
 			component: null,
+			hooks: nonCountryHook(),
+		},
+		{
+			path: "favorites",
+			component: async () => import("./views/FavoritesTop.svelte"),
 			hooks: nonCountryHook(),
 		},
 		{
@@ -71,6 +75,10 @@
 			component: async () => import("./views/AboutPage.svelte"),
 		},
 		{
+			path: "favorites",
+			component: async () => import("./views/FavoritesPage.svelte"),
+		},
+		{
 			path: "search",
 			component: async () => import("./views/SearchPage.svelte"),
 		},
@@ -89,41 +97,39 @@
 	];
 </script>
 
-<TooltipProvider delayDuration={100} disableHoverableContent={true}>
-	<TopNav />
-	<div class="grid grid-cols-1 md:grid-cols-5 gap-2 my-2">
-		<div class="col-span-1 md:hidden">
+<TopNav />
+<div class="grid grid-cols-1 md:grid-cols-5 gap-2 my-2">
+	<div class="col-span-1 md:hidden">
+		<Router routes={topRoutes} basePath="/world/" />
+	</div>
+	<nav class="col-span-1">
+		<CountryPicker />
+	</nav>
+	<main class="col-span-1 md:col-span-4">
+		<div class="hidden md:block mb-4">
 			<Router routes={topRoutes} basePath="/world/" />
 		</div>
-		<nav class="col-span-1">
-			<CountryPicker />
-		</nav>
-		<main class="col-span-1 md:col-span-4">
-			<div class="hidden md:block mb-4">
-				<Router routes={topRoutes} basePath="/world/" />
-			</div>
-			<Router
-				{routes}
-				basePath="/world/"
-				hooks={{
-					post: [
-						(_: RouteResult): boolean => {
-							window.scrollTo(0, 0);
-							return true;
-						},
-					],
-				}}
-			/>
-		</main>
-	</div>
-	<footer
-		class="bg-stone-900 w-full mx-auto flex items-center justify-between px-4 py-2 mt-2"
-	>
-		<span class="text-sm text-body sm:text-center"
-			>© {new Date().getFullYear()}
-			<a href="https://hauntedbees.com/" class="underline"
-				>Haunted Bees Productions</a
-			>
-		</span>
-	</footer>
-</TooltipProvider>
+		<Router
+			{routes}
+			basePath="/world/"
+			hooks={{
+				post: [
+					(_: RouteResult): boolean => {
+						window.scrollTo(0, 0);
+						return true;
+					},
+				],
+			}}
+		/>
+	</main>
+</div>
+<footer
+	class="bg-stone-900 w-full mx-auto flex items-center justify-between px-4 py-2 mt-2"
+>
+	<span class="text-sm text-body sm:text-center"
+		>© {new Date().getFullYear()}
+		<a href="https://hauntedbees.com/" class="underline"
+			>Haunted Bees Productions</a
+		>
+	</span>
+</footer>

@@ -5,6 +5,8 @@
 	import SkeletonEntry from "$lib/components/bee/skeletons/skeleton-entry.svelte";
 	import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
 	import SongDisplay from "$lib/components/bee/song-display.svelte";
+	import Error from "$lib/components/bee/error.svelte";
+	import NotFound from "$lib/components/bee/not-found.svelte";
 	let { route }: { route: { result: any } } = $props();
 	let countryCode: string = $derived(
 		route?.result?.path?.params?.countryCode,
@@ -77,21 +79,21 @@
 					<p class="text-xl font-bold mb-2">
 						{country.demonym} Music
 					</p>
-					<ul class="list-disc ml-4 text-start">
+					<ul class="ml-4 text-start">
 						{#each country.music as song}
-							<li>
-								<SongDisplay {song} />
-							</li>
+							<SongDisplay {song} />
 						{/each}
 					</ul>
 				</div>
 			{/if}
-		{:catch}
-			<p>
-				Either I haven't gotten to this country yet, you found your way
-				to something that isn't real, or something broke. Sorry about
-				that! You should go back to the home page and try again.
-			</p>
+		{:catch e}
+			<div class="col-span-1 md:col-span-4">
+				{#if e.toString().indexOf("Country not found.") >= 0}
+					<NotFound />
+				{:else}
+					<Error />
+				{/if}
+			</div>
 		{/await}
 	</div>
 </div>
