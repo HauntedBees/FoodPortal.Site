@@ -98,7 +98,7 @@
 </script>
 
 <TopNav />
-<div class="grid grid-cols-1 md:grid-cols-5 gap-2 my-2">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-2 my-2 mb-14">
 	<div class="col-span-1 md:hidden">
 		<Router routes={topRoutes} basePath="/world/" />
 	</div>
@@ -124,7 +124,7 @@
 	</main>
 </div>
 <footer
-	class="bg-stone-900 w-full mx-auto flex items-center justify-between px-4 py-2 mt-2"
+	class="bg-stone-900 w-full mx-auto flex items-center justify-between px-4 py-2 mt-2 fixed bottom-0"
 >
 	<span class="text-sm text-body sm:text-center"
 		>© {new Date().getFullYear()}
